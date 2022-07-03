@@ -3,13 +3,13 @@
   "pattern": [
     "#G#",
     "GXG",
-    "#G#"
+    "GGG"
   ],
   "key": {
-    "#": {
-      "item": "minecraft:diamond_block"
-    },
     "X": {
+      "item": "minecraft:nether_star"
+    },
+    "#": {
       "item": "minecraft:emerald_block"
     },
     "G": {
