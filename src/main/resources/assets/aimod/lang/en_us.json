@@ -3,7 +3,12 @@
   "item.aimod.copper_axe": "Copper Axe",
   "item.aimod.copper_shovel": "Copper Shovel",
   "item.aimod.copper_sword": "Copper Sword",
-  "item.aimod.copper_hoe": "Copper Hoe"
+  "item.aimod.copper_hoe": "Copper Hoe",
 
+  "item.aimod.copper_helmet": "Copper Helmet",
+  "item.aimod.copper_chestplate": "Copper Chestplate",
+  "item.aimod.copper_leggings": "Copper Leggings",
+  "item.aimod.copper_boots": "Copper Boots",
 
+  "item.aimod.copper_nugget": "Copper Nuggets"
 }
