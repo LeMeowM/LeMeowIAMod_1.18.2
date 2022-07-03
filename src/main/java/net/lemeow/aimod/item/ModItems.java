@@ -12,6 +12,9 @@ import net.minecraft.util.registry.Registry;
 
 public class ModItems {
 
+    public static final Item COPPER_SHOVEL = registerItem("copper_shovel",
+            new ModCopperShovel(ModToolMaterials.COPPER, 2, 2f, new FabricItemSettings().group(ItemGroup.TOOLS)));
+
     public static final Item COPPER_PICKAXE = registerItem("copper_pickaxe",
             new ModCopperPickaxe(ModToolMaterials.COPPER, 1, 2f, new FabricItemSettings().group(ItemGroup.TOOLS)));
 
@@ -19,13 +22,11 @@ public class ModItems {
             new ModCopperAxe(ModToolMaterials.COPPER, 1, 2f, new FabricItemSettings().group(ItemGroup.TOOLS)));
 
     public static final Item COPPER_SWORD = registerItem("copper_sword",
-            new SwordItem(ModToolMaterials.COPPER, 4, 2f, new FabricItemSettings().group(ItemGroup.TOOLS)));
+            new SwordItem(ModToolMaterials.COPPER, 4, 2f, new FabricItemSettings().group(ItemGroup.COMBAT)));
 
     public static final Item COPPER_HOE = registerItem("copper_hoe",
             new ModCopperHoe(ModToolMaterials.COPPER, 1, 2f, new FabricItemSettings().group(ItemGroup.TOOLS)));
 
-    public static final Item COPPER_SHOVEL = registerItem("copper_shovel",
-            new ModCopperShovel(ModToolMaterials.COPPER, 2, 2f, new FabricItemSettings().group(ItemGroup.TOOLS)));
 
     private static Item registerItem(String name, Item item){
          return Registry.register(Registry.ITEM, new Identifier(AIMod.MOD_ID, name), item);

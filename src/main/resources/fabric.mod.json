@@ -3,8 +3,8 @@
   "id": "aimod",
   "version": "${version}",
 
-  "name": "Example Mod",
-  "description": "This is an example description! Tell everyone what your mod is about!",
+  "name": "Better AI Mod",
+  "description": "This Mod works on AIs as well as adds stuff as demanded by Sam Stinson",
   "authors": [
     "Hugo Noublanche"
   ],
@@ -14,7 +14,7 @@
   },
 
   "license": "MIT",
-  "icon": "assets/modid/icon.png",
+  "icon": "assets/aimod/icon.png",
 
   "environment": "*",
   "entrypoints": {
