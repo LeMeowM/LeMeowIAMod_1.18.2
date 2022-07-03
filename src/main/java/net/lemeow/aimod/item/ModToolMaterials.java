@@ -10,7 +10,7 @@ import net.minecraft.util.Lazy;
 import java.util.function.Supplier;
 
 public enum ModToolMaterials implements ToolMaterial {
-    COPPER(MiningLevels.IRON, 190, 6.0f, 1.5f, 25, () -> Ingredient.ofItems(Items.COPPER_INGOT));
+    COPPER(MiningLevels.IRON, 200, 5.0f, 1.5f, 25, () -> Ingredient.ofItems(Items.COPPER_INGOT));
 
 
     private final int miningLevel;

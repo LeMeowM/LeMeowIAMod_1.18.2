@@ -1,4 +1,4 @@
-package net.lemeow.mixin;
+package net.lemeow.aimod.mixin;
 
 import net.lemeow.aimod.AIMod;
 import net.minecraft.client.gui.screen.TitleScreen;

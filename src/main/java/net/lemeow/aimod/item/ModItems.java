@@ -19,13 +19,16 @@ public class ModItems {
             new ModCopperPickaxe(ModToolMaterials.COPPER, 1, 2f, new FabricItemSettings().group(ItemGroup.TOOLS)));
 
     public static final Item COPPER_AXE = registerItem("copper_axe",
-            new ModCopperAxe(ModToolMaterials.COPPER, 1, 2f, new FabricItemSettings().group(ItemGroup.TOOLS)));
+            new ModCopperAxe(ModToolMaterials.COPPER, 7.5f, 2f, new FabricItemSettings().group(ItemGroup.TOOLS)));
 
     public static final Item COPPER_SWORD = registerItem("copper_sword",
             new SwordItem(ModToolMaterials.COPPER, 4, 2f, new FabricItemSettings().group(ItemGroup.COMBAT)));
 
     public static final Item COPPER_HOE = registerItem("copper_hoe",
             new ModCopperHoe(ModToolMaterials.COPPER, 1, 2f, new FabricItemSettings().group(ItemGroup.TOOLS)));
+
+    public static final Item COPPER_NUGGET = registerItem("copper_nugget",
+            new Item(new FabricItemSettings().group(ItemGroup.MISC)));
 
 
     private static Item registerItem(String name, Item item){
