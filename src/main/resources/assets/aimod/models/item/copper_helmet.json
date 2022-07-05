@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "aimod:item/copper_hemet"
+    "layer0": "aimod:item/copper_helmet"
   }
 }
