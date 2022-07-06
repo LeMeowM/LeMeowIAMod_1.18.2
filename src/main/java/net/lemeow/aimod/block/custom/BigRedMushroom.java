@@ -1,4 +1,4 @@
-package net.lemeow.aimod.block;
+package net.lemeow.aimod.block.custom;
 
 import net.minecraft.block.MushroomPlantBlock;
 import net.minecraft.util.registry.RegistryEntry;

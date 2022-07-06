@@ -1,6 +1,7 @@
 package net.lemeow.aimod;
 
 import net.fabricmc.api.ModInitializer;
+import net.lemeow.aimod.block.ModBlocks;
 import net.lemeow.aimod.item.ModItems;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -20,5 +21,6 @@ public class AIMod implements ModInitializer {
 
 		LOGGER.info("Hello Fabric world!");
 		ModItems.registerModItems();
+		ModBlocks.registerMudBlocks();
 	}
 }

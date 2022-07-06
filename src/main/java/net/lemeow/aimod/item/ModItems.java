@@ -1,14 +1,11 @@
 package net.lemeow.aimod.item;
 
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
-import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.lemeow.aimod.AIMod;
-import net.lemeow.aimod.block.BigRedMushroom;
 import net.lemeow.aimod.item.custom.ModCopperAxe;
 import net.lemeow.aimod.item.custom.ModCopperHoe;
 import net.lemeow.aimod.item.custom.ModCopperPickaxe;
 import net.lemeow.aimod.item.custom.ModCopperShovel;
-import net.minecraft.block.Blocks;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.*;
 import net.minecraft.util.Identifier;
@@ -68,6 +65,14 @@ public class ModItems {
     public static final Item BIG_RED_MUSHROOM = registerItem("big_red_mushroom",
             new BigRedMushroom(FabricBlockSettings.copy(Blocks.RED_MUSHROOM), ));
     ***/
+
+    // Void Quartz Items
+
+    public static final Item VOID_QUARTZ_SHARD = registerItem("void_quartz_shard",
+            new Item(new FabricItemSettings().group(ItemGroup.MISC)));
+
+    public static final Item VOID_QUARTZ_INGOT = registerItem("void_quartz_ingot",
+            new Item(new FabricItemSettings().group(ItemGroup.MISC)));
 
     private static Item registerItem(String name, Item item){
          return Registry.register(Registry.ITEM, new Identifier(AIMod.MOD_ID, name), item);

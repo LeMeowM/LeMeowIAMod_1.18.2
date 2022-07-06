@@ -1,4 +1,5 @@
 {
+
   "item.aimod.copper_pickaxe": "Copper Pickaxe",
   "item.aimod.copper_axe": "Copper Axe",
   "item.aimod.copper_shovel": "Copper Shovel",
@@ -11,5 +12,11 @@
   "item.aimod.copper_boots": "Copper Boots",
   "item.aimod.copper_horse_armor": "Copper Horse Armor",
 
-  "item.aimod.copper_nugget": "Copper Nuggets"
+  "item.aimod.copper_nugget": "Copper Nuggets",
+
+  "item.aimod.void_quartz_shard": "Void Quartz Shard",
+  "item.aimod.void_quartz_Ingot": "Void Quartz Ingot",
+
+  "block.aimod.void_quartz_block": "Void Quartz Block",
+  "block.aimod.void_quartz_ore": "Void Quartz Ore"
 }
