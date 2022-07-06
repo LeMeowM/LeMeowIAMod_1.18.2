@@ -58,6 +58,10 @@ public class ModItems {
             new ArmorItem(ModArmorMaterials.Copper, EquipmentSlot.FEET,
                     new FabricItemSettings().group(ItemGroup.COMBAT)));
 
+    public static final Item COPPER_HORSE_ARMOR = registerItem("copper_horse_armor",
+            new HorseArmorItem(4,"copper",
+                    new FabricItemSettings().group(ItemGroup.COMBAT)));
+
     // BIG MUSHROOMS, what the fuck is a Supplier<registry>????
 
     /***
