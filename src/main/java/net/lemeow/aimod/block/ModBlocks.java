@@ -16,11 +16,11 @@ public class ModBlocks {
     // Void Quartz Blocks Inputs
 
     public static final Block VOID_QUARTZ_ORE = registerBlock("void_quartz_ore",
-            new Block(FabricBlockSettings.of(Material.STONE).requiresTool().strength(6f, 12f)),
+            new Block(FabricBlockSettings.of(Material.STONE).requiresTool().strength(50f, 1200f)),
             ItemGroup.BUILDING_BLOCKS);
 
     public static final Block VOID_QUARTZ_BLOCK = registerBlock("void_quartz_block",
-            new Block(FabricBlockSettings.of(Material.METAL).strength(6f).requiresTool().resistance(360000f)),
+            new Block(FabricBlockSettings.of(Material.METAL).strength(50f, 1200f).requiresTool()),
             ItemGroup.MISC);
 
     public static Block registerBlock(String name, Block block, ItemGroup group){

@@ -37,9 +37,9 @@ void quartz as a new endgame material, more passive mobs, as well as maybe a new
 | Copper Pickaxe     |   `aimod.copper_pickaxe`   |                                             |
 | Copper Shovel      |   `aimod.copper_shovel`    |                                             |
 | Copper Sword       |    `aimod.copper_sword`    |                                             |
-| Void Quartz Block  | `aimod.void_quartz_block`  | Behavior Not Implemented & Missing Textures |
+| Void Quartz Block  | `aimod.void_quartz_block`  |   Missing Textures, Behavior needs fixing   |
 | Void Quartz Ingot  | `aimod.void_quartz_ingot`  | Behavior Not Implemented & Missing Textures |
-| Void Quartz Ore    |  `aimod.void_quartz_ore`   | Behavior Not Implemented & Missing Textures |
+| Void Quartz Ore    |  `aimod.void_quartz_ore`   |   Missing Textures, Behavior needs fixing   |
 | Void Quartz Shard  | `aimod.void_quartz_shard`  | Behavior Not Implemented & Missing Textures |
 |                    |                            |                                             |
 
