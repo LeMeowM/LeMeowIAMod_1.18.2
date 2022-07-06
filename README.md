@@ -22,9 +22,9 @@ void quartz as a new endgame material, more passive mobs, as well as maybe a new
 - Owls
 - Rats
 
-<details><summary><h2>List of Blocks Added (and their tags):</h2></summary>
+<details><summary><h2>List of Items Added (and their tags):</h2></summary>
 
-| Block Name         |          Block ID          |           Why is it not working?            |
+| Item Name          |          Item ID           |           Why is it not working?            |
 |:-------------------|:--------------------------:|:-------------------------------------------:|
 | Copper Axe         |     `aimod.copper_axe`     |                                             |
 | Copper Boots       |    `aimod.copper_boots`    |                                             |
