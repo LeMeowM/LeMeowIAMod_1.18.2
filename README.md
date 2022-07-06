@@ -14,3 +14,5 @@ As much as the name of this project may suggest, this project is less to do with
 - Capybara
 - Owls
 - Rats
+
+# ALL CREDIT FOR ART GOES TO (SAMANTHA STINSON)[https://instagram.com/hellspawn_exhibit?igshid=YmMyMTA2M2Y=]
