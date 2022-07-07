@@ -1,0 +1,6 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "aimod:item/void_quartz_boots"
+  }
+}

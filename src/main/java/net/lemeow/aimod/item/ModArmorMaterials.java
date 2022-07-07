@@ -13,8 +13,11 @@ import java.util.function.Supplier;
 
 public enum ModArmorMaterials implements ArmorMaterial {
 
-    Copper("copper", 15, new int[]{2, 4, 4, 1}, 25, SoundEvents.ITEM_ARMOR_EQUIP_IRON, 0.0F, 0.0F, () -> {
+    COPPER("copper", 15, new int[]{2, 4, 4, 1}, 25, SoundEvents.ITEM_ARMOR_EQUIP_IRON, 0.0F, 0.0F, () -> {
         return Ingredient.ofItems(new ItemConvertible[]{Items.COPPER_INGOT});
+    }),
+    VOID_QUARTZ("void_quartz", 45, new int[]{3, 6, 8, 3}, 20, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 4.0F, 0.3F, () ->{
+        return Ingredient.ofItems(new ItemConvertible[]{ModItems.VOID_QUARTZ_INGOT});
     });
 
 

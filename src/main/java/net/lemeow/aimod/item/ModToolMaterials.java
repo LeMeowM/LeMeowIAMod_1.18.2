@@ -1,6 +1,7 @@
 package net.lemeow.aimod.item;
 
 import net.fabricmc.yarn.constants.MiningLevels;
+import net.minecraft.item.ItemConvertible;
 import net.minecraft.item.Items;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.recipe.Ingredient;
@@ -10,7 +11,10 @@ import net.minecraft.util.Lazy;
 import java.util.function.Supplier;
 
 public enum ModToolMaterials implements ToolMaterial {
-    COPPER(MiningLevels.IRON, 200, 5.0f, 1.5f, 25, () -> Ingredient.ofItems(Items.COPPER_INGOT));
+    COPPER(1, 200, 5.0f, 1.5f, 25, () -> Ingredient.ofItems(Items.COPPER_INGOT)),
+    VOID_QUARTZ(5, 2051, 14.0F, 5.0F, 20, () ->  Ingredient.ofItems(ModItems.VOID_QUARTZ_INGOT));
+
+
 
 
     private final int miningLevel;

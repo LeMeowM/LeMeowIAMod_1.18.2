@@ -24,24 +24,36 @@ void quartz as a new endgame material, more passive mobs, as well as maybe a new
 
 <details><summary><h2>List of Items Added (and their tags):</h2></summary>
 
-| Item Name          |          Item ID           |            Why is it not working?            |
-|:-------------------|:--------------------------:|:--------------------------------------------:|
-| Copper Axe         |     `aimod.copper_axe`     |                                              |
-| Copper Boots       |    `aimod.copper_boots`    |                                              |
-| Copper Chestplate  | `aimod.copper_chestplate`  |                                              |
-| Copper Helmet      |   `aimod.copper_helmet`    |                                              | 
-| Copper Hoe         |     `aimod.copper_hoe`     |                                              |
-| Copper Horse Armor | `aimod.copper_horse_armor` |               Missing Textures               |
-| Copper Leggings    |  `aimod.copper_leggings`   |                                              |
-| Copper Nugget      |   `aimod.copper_nugget`    |               Missing Texture                |
-| Copper Pickaxe     |   `aimod.copper_pickaxe`   |                                              |
-| Copper Shovel      |   `aimod.copper_shovel`    |                                              |
-| Copper Sword       |    `aimod.copper_sword`    |                                              |
-| Void Quartz Block  | `aimod.void_quartz_block`  |   Missing Textures, Behavior needs fixing    |
-| Void Quartz Ingot  | `aimod.void_quartz_ingot`  | Behavior Not Implemented & Missing Textures  |
-| Void Quartz Ore    |  `aimod.void_quartz_ore`   | Missing Textures, Behavior needs fine tuning |
-| Void Quartz Shard  | `aimod.void_quartz_shard`  | Behavior Not Implemented & Missing Textures  |
-|                    |                            |                                              |
+| Item Name                     |                Item ID                |                                Why is it not working?                                |
+|:------------------------------|:-------------------------------------:|:------------------------------------------------------------------------------------:|
+| Copper Axe                    |          `aimod.copper_axe`           |                                                                                      |
+| Copper Boots                  |         `aimod.copper_boots`          |                                                                                      |
+| Copper Chestplate             |       `aimod.copper_chestplate`       |                                                                                      |
+| Copper Helmet                 |         `aimod.copper_helmet`         |                                                                                      | 
+| Copper Hoe                    |          `aimod.copper_hoe`           |                                                                                      |
+| Copper Horse Armor            |      `aimod.copper_horse_armor`       |                                   Missing Textures                                   |
+| Copper Leggings               |        `aimod.copper_leggings`        |                                                                                      |
+| Copper Nugget                 |         `aimod.copper_nugget`         |                                   Missing Texture                                    |
+| Copper Pickaxe                |        `aimod.copper_pickaxe`         |                                                                                      |
+| Copper Shovel                 |         `aimod.copper_shovel`         |                                                                                      |
+| Copper Sword                  |         `aimod.copper_sword`          |                                                                                      |
+| Void Quartz Block             |       `aimod.void_quartz_block`       |                       Missing Textures, Behavior needs fixing                        |
+| Void Quartz Ingot             |       `aimod.void_quartz_ingot`       |                     Behavior Not Implemented & Missing Textures                      |
+| Void Quartz Ore               |        `aimod.void_quartz_ore`        |                     Missing Textures, Behavior needs fine tuning                     |
+| Void Quartz Shard             |       `aimod.void_quartz_shard`       |                     Behavior Not Implemented & Missing Textures                      |
+| Void Quartz Axe               |        `aimod.void_quartz_axe`        |                                   Missing Textures                                   |
+| Void Quartz Boots             |       `aimod.void_quartz_boots`       |                                   Missing Textures                                   |
+| Void Quartz Chestplate        |    `aimod.void_quartz_chestplate`     |                                   Missing Textures                                   |
+| Winged Void Quartz Chestplate | `aimod.void_quartz_chestplate_winged` |                     Behavior Not Implemented & Missing Textures                      |
+| Void Quartz Helmet            |      `aimod.void_quartz_helmet`       |                                   Missing Textures                                   |
+| Void Quartz Hoe               |        `aimod.void_quartz_hoe`        |                                   Missing Textures                                   |
+| Void Quartz Leggings          |     `aimod.void_quartz_leggings`      |                                   Missing Textures                                   |
+| Void Quartz Pickaxe           |      `aimod.void_quartz_pickaxe`      |                                   Missing Textures                                   |
+| Void Quartz Shovel            |      `aimod.void_quartz_shovel`       |                                   Missing Textures                                   |
+| Void Quartz Sword             |       `aimod.void_quartz_sword`       |                                   Missing Textures                                   |
+|                               |                                       |                                                                                      |
+|                               |                                       |                                                                                      |
+
 
 
 

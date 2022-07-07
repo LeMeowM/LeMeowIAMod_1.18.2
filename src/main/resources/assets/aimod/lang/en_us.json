@@ -18,5 +18,17 @@
   "item.aimod.void_quartz_ingot": "Void Quartz Ingot",
 
   "block.aimod.void_quartz_block": "Void Quartz Block",
-  "block.aimod.void_quartz_ore": "Void Quartz Ore"
+  "block.aimod.void_quartz_ore": "Void Quartz Ore",
+
+  "item.aimod.void_quartz_pickaxe": "Void Quartz Pickaxe",
+  "item.aimod.void_quartz_axe": "Void Quartz Axe",
+  "item.aimod.void_quartz_shovel": "Void Quartz Shovel",
+  "item.aimod.void_quartz_sword": "Void Quartz Sword",
+  "item.aimod.void_quartz_hoe": "Void Quartz Hoe",
+
+  "item.aimod.void_quartz_helmet": "Void Quartz Helmet",
+  "item.aimod.void_quartz_chestplate": "Void Quartz Chestplate",
+  "item.aimod.void_quartz_chestplate_wings": "Winged Void Quartz Chestplate",
+  "item.aimod.void_quartz_leggings": "Void Quartz Leggings",
+  "item.aimod.void_quartz_boots": "Void Quartz Boots"
 }
