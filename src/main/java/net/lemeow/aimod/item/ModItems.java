@@ -9,7 +9,11 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.Rarity;
 import net.minecraft.util.registry.Registry;
 
+
+
 public class ModItems {
+
+
 
     // COPPER TOOLS
     public static final Item COPPER_SHOVEL = registerItem("copper_shovel",
@@ -118,6 +122,12 @@ public class ModItems {
     public static final Item VOID_QUARTZ_HOE = registerItem("void_quartz_hoe",
             new ModCopperHoe(ModToolMaterials.VOID_QUARTZ, -5, 0F,
                     new FabricItemSettings().group(ItemGroup.TOOLS).fireproof().rarity(Rarity.EPIC)));
+
+
+
+
+
+
 
 
     private static Item registerItem(String name, Item item){

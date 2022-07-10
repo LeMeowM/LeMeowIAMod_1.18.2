@@ -13,12 +13,12 @@ import java.util.function.Supplier;
 
 public enum ModArmorMaterials implements ArmorMaterial {
 
-    COPPER("copper", 15, new int[]{2, 4, 4, 1}, 25, SoundEvents.ITEM_ARMOR_EQUIP_IRON, 0.0F, 0.0F, () -> {
-        return Ingredient.ofItems(new ItemConvertible[]{Items.COPPER_INGOT});
-    }),
-    VOID_QUARTZ("void_quartz", 45, new int[]{3, 6, 8, 3}, 20, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 4.0F, 0.3F, () ->{
-        return Ingredient.ofItems(new ItemConvertible[]{ModItems.VOID_QUARTZ_INGOT});
-    });
+    COPPER("copper", 15, new int[]{2, 4, 4, 1}, 25,
+            SoundEvents.ITEM_ARMOR_EQUIP_IRON, 0.0F, 0.0F,
+            () -> Ingredient.ofItems(new ItemConvertible[]{Items.COPPER_INGOT})),
+    VOID_QUARTZ("void_quartz", 46, new int[]{3, 6, 8, 3}, 20,
+            SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 4.0F, 0.3F,
+            () -> Ingredient.ofItems(new ItemConvertible[]{ModItems.VOID_QUARTZ_INGOT}));
 
 
     private static final int[] BASE_DURABILITY = new int[]{13, 15, 16, 11};
@@ -31,7 +31,9 @@ public enum ModArmorMaterials implements ArmorMaterial {
     private final float knockbackResistance;
     private final Lazy<Ingredient> repairIngredientSupplier;
 
-    private ModArmorMaterials(String name, int durabilityMultiplier, int[] protectionAmounts, int enchantability, SoundEvent equipSound, float toughness, float knockbackResistance, Supplier<Ingredient> repairIngredientSupplier) {
+    ModArmorMaterials(String name, int durabilityMultiplier, int[] protectionAmounts, int enchantability,
+                              SoundEvent equipSound, float toughness, float knockbackResistance,
+                              Supplier<Ingredient> repairIngredientSupplier) {
         this.name = name;
         this.durabilityMultiplier = durabilityMultiplier;
         this.protectionAmounts = protectionAmounts;
@@ -59,7 +61,7 @@ public enum ModArmorMaterials implements ArmorMaterial {
     }
 
     public Ingredient getRepairIngredient() {
-        return (Ingredient)this.repairIngredientSupplier.get();
+        return this.repairIngredientSupplier.get();
     }
 
     public String getName() {

@@ -1,0 +1,9 @@
+{
+  "variants": {
+    "facing=north" : { "model": "aimod:block/infusion_table"},
+    "facing=east" : { "model": "aimod:block/infusion_table", "y" : 90},
+    "facing=south" : { "model": "aimod:block/infusion_table", "y" : 180},
+    "facing=west" : { "model": "aimod:block/infusion_table", "y" : 270}
+
+  }
+}

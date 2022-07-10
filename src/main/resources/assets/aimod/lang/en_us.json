@@ -30,5 +30,7 @@
   "item.aimod.void_quartz_chestplate": "Void Quartz Chestplate",
   "item.aimod.void_quartz_chestplate_wings": "Winged Void Quartz Chestplate",
   "item.aimod.void_quartz_leggings": "Void Quartz Leggings",
-  "item.aimod.void_quartz_boots": "Void Quartz Boots"
+  "item.aimod.void_quartz_boots": "Void Quartz Boots",
+
+  "block.aimod.infusion_table": "Infusion Table"
 }
