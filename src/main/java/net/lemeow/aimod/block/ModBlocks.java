@@ -10,6 +10,7 @@ import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.Rarity;
 import net.minecraft.util.registry.Registry;
 
 public class ModBlocks {
@@ -24,7 +25,7 @@ public class ModBlocks {
             new Block(FabricBlockSettings.of(Material.METAL).strength(50f, 1200f).requiresTool()),
             ItemGroup.MISC);
 
-    public static final Block INFUSION_TABLE = registerBlock("infusion_table",
+    public static final Block INFUSION_TABLE = registerVoidBlock("infusion_table",
             new InfusionTableBlock(FabricBlockSettings.of(Material.STONE).strength(50f,1200f).requiresTool()),
             ItemGroup.BUILDING_BLOCKS);
 
@@ -33,9 +34,19 @@ public class ModBlocks {
         return Registry.register(Registry.BLOCK, new Identifier(AIMod.MOD_ID, name), block);
     }
 
+    public static Block registerVoidBlock(String name, Block block, ItemGroup group){
+        registerVoidItem(name, block, group);
+        return Registry.register(Registry.BLOCK, new Identifier(AIMod.MOD_ID, name), block);
+    }
+
     private static Item registerBlockItem(String name, Block block, ItemGroup group){
         return Registry.register(Registry.ITEM, new Identifier(AIMod.MOD_ID, name),
                 new BlockItem(block, new FabricItemSettings().group(group)));
+    }
+
+    private static Item registerVoidItem(String name, Block block, ItemGroup group){
+        return Registry.register(Registry.ITEM, new Identifier(AIMod.MOD_ID, name),
+                new BlockItem(block, new FabricItemSettings().group(group).fireproof().rarity(Rarity.EPIC)));
     }
 
 
