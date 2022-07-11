@@ -12,7 +12,7 @@ import net.minecraft.util.Identifier;
 public class InfusionTableScreen extends HandledScreen<InfusionTableScreenHandler> {
     private static final Identifier TEXTURE =
             new Identifier(AIMod.MOD_ID, "textures/gui/infusion_table.png");
-    public static final int DELTA= 0;
+    public static final int DELTA= 8;
 
 
 
@@ -45,20 +45,20 @@ public class InfusionTableScreen extends HandledScreen<InfusionTableScreenHandle
         if(handler.isCrafting()){
 
             // pointing right
-            drawTexture(matrices, x+52, y + 61+DELTA, 176, 0, handler.getScaledProgress(), 16);
+            drawTexture(matrices, x+52, y + 61+DELTA, 177, 0, handler.getScaledProgress(), 16);
             // pointing down
             drawTexture(matrices, x+80, y+32+DELTA, 177, 37, 16, handler.getScaledProgress());
 
-            //these two dont work reeeee
             // pointing up
             //idea is you draw from bottom up and increment the height as well as from where you're drawing
             // so that you inch up and don't go top down
-            drawTexture(matrices, x+80 + 21 - handler.getScaledProgress(), y+82+DELTA, 117,
-                    83- handler.getScaledProgress(), 16, 21- handler.getScaledProgress());
+            drawTexture(matrices, x+80,y+91 + 21 - handler.getScaledProgress(), 177,
+                    84- handler.getScaledProgress(), 16, handler.getScaledProgress() );
+
             //pointing left
             // same idea
-            drawTexture(matrices, x+102, y + 61 + 21 - handler.getScaledProgress()+DELTA,
-                    198- handler.getScaledProgress(), 18, 21-handler.getScaledProgress(), 16);
+            drawTexture(matrices, x+103 + 21 - handler.getScaledProgress(), y + 61 +DELTA,
+                    199- handler.getScaledProgress(), 18, handler.getScaledProgress(), 16);
 
         }
 

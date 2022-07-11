@@ -1,75 +1,33 @@
 package net.lemeow.aimod.recipe;
 
-import com.google.gson.JsonArray;
-import com.google.gson.JsonObject;
-import net.minecraft.inventory.SimpleInventory;
+
+
 import net.minecraft.item.ItemStack;
-import net.minecraft.network.PacketByteBuf;
+
 import net.minecraft.recipe.*;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.JsonHelper;
-import net.minecraft.util.collection.DefaultedList;
-import net.minecraft.world.World;
 
-public class InfusionTableRecipe implements Recipe<SimpleInventory> {
 
-    private final Identifier id;
-    private final ItemStack output;
-    private final DefaultedList<Ingredient> recipeItems;
 
-    public InfusionTableRecipe(Identifier id, ItemStack output, DefaultedList<Ingredient> recipeItems) {
-        this.id = id;
-        this.output = output;
-        this.recipeItems = recipeItems;
+public class InfusionTableRecipe extends AbstractCookingRecipe{
+
+    public static final RecipeType<InfusionTableRecipe> INFUSING = RecipeType.register("infusing");
+
+    public InfusionTableRecipe(Identifier id, String group, Ingredient input, ItemStack output, float experience, int cookTime) {
+        super( INFUSING , id, group, input, output,  0.0F, 6000);
     }
 
-    /*
-    Design of the crafting grid will be something like
 
 
-            X
-            |
-        X---A---X   Where X are Void Quartz Shards and A is the Netherite ingot being changed into a Void Quartz Ingot
-            |       Perhaps we then do it again where A is any netherite tool/armor
-            X       and X are the ingots to infuse it with?
-
-
-
-     */
-    @Override
-    public boolean matches(SimpleInventory inventory, World world) {
-        if(world.isClient()) return false;
-        for(int i = 0; i < 6; i++ ){
-            if(!recipeItems.get(i).test(inventory.getStack(i))){
-                return false;
-            }
-        }
-        return true;
+    public Ingredient getInput() {
+        return super.input;
     }
 
-    @Override
-    public ItemStack craft(SimpleInventory inventory) {
-        return output;
-    }
 
-    @Override
-    public boolean fits(int width, int height) {
-        return true;
-    }
-
-    @Override
-    public ItemStack getOutput() {
-        return output.copy();
-    }
-
-    @Override
-    public Identifier getId() {
-        return id;
-    }
 
     @Override
     public RecipeSerializer<?> getSerializer() {
-        return Serializer.INSTANCE;
+        return ModSerializer.INSTANCE;
     }
 
     @Override
@@ -83,6 +41,9 @@ public class InfusionTableRecipe implements Recipe<SimpleInventory> {
         public static final String ID = "infusion_table";
     }
 
+
+
+    /*
     public static class Serializer implements  RecipeSerializer<InfusionTableRecipe> {
         public static final Serializer INSTANCE = new Serializer();
 
@@ -123,10 +84,10 @@ public class InfusionTableRecipe implements Recipe<SimpleInventory> {
         }
 
 
-        /* also for server, again carried by the fabric discord help channel, no idea why this is working
-        i think buf is a tool for the player to communicate with the server and its built in this way but i cant seem to
-        understand the documentation?
-         */
+        // also for server, again carried by the fabric discord help channel, no idea why this is working
+        // i think buf is a tool for the player to communicate with the server and its built in this way but i cant seem to
+        // understand the documentation?
+
         @Override
         public void write(PacketByteBuf buf, InfusionTableRecipe recipe) {
             buf.writeInt(recipe.getIngredients().size());
@@ -136,6 +97,7 @@ public class InfusionTableRecipe implements Recipe<SimpleInventory> {
             }
             buf.writeItemStack(recipe.getOutput());
         }
-    }
 
+        */
 }
+

@@ -1,16 +1,20 @@
 package net.lemeow.aimod.block.entity;
 
-import net.fabricmc.fabric.api.registry.FuelRegistry;
+
+import net.lemeow.aimod.item.ModItems;
 import net.lemeow.aimod.item.inventory.ImplementedInventory;
 import net.lemeow.aimod.recipe.InfusionTableRecipe;
 import net.lemeow.aimod.screen.InfusionTableScreenHandler;
+import net.lemeow.aimod.screen.slot.ModResultSlot;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.Inventories;
 import net.minecraft.inventory.SimpleInventory;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.screen.NamedScreenHandlerFactory;
 import net.minecraft.screen.PropertyDelegate;
@@ -30,7 +34,7 @@ public class InfusionTableBlockEntity extends BlockEntity implements NamedScreen
 
     protected final PropertyDelegate propertyDelegate;
     private int progress = 0;
-    private int maxProgress = 0;
+    private int maxProgress = 6000;
 
 
     public InfusionTableBlockEntity(BlockPos pos, BlockState state) {
@@ -71,7 +75,6 @@ public class InfusionTableBlockEntity extends BlockEntity implements NamedScreen
     @Nullable
     @Override
     public ScreenHandler createMenu(int syncId, PlayerInventory inv, PlayerEntity player) {
-        System.out.println("creating menu");
         return new InfusionTableScreenHandler(syncId, inv, this, this.propertyDelegate);
     }
 
@@ -92,62 +95,67 @@ public class InfusionTableBlockEntity extends BlockEntity implements NamedScreen
 
     }
 
+    // for hardcoding ingots
+    public boolean isFueledByItem(Item item){
+        for(int i = 0; i<4; i++){
+            if(!inventory.get(i).isOf(item)) return false;
+        }
+        return true;
+    }
+    // inventory.get(4).isOf(Items.NETHERITE_INGOT)
 
     public static void tick(World world, BlockPos pos, BlockState state, InfusionTableBlockEntity entity) {
-
-        if(hasRecipe(entity)){
-            entity.progress++;
-            if(entity.progress> entity.maxProgress){
-                craftItem(entity);
+        // hardcode crafting ingots
+        if (entity.isFueledByItem(ModItems.VOID_QUARTZ_SHARD)) {
+            if(entity.inventory.get(4).isOf(Items.NETHERITE_INGOT)) {
+                entity.progress++;
+                if (entity.progress > entity.maxProgress) {
+                    craftIngot(entity);
+                }
             }
-        }
+        } else if (entity.isFueledByItem(ModItems.VOID_QUARTZ_INGOT)) {
+                if(ModResultSlot.validInputSources.contains(entity.inventory.get(4).getItem())){
+                    entity.progress++;
+                    if (entity.progress > entity.maxProgress) {
+                        craftItem(entity, entity.inventory.get(4).getItem());
+                    }
+                }
+            }
         else entity.resetProgress();
     }
 
 
 
-    private static boolean hasRecipe(InfusionTableBlockEntity entity) {
-        World world = entity.world;
-        if(world==null) return false;
-        SimpleInventory inventory = new SimpleInventory(entity.inventory.size());
-        for (int i = 0; i < entity.inventory.size(); i++) {
-            inventory.setStack(i, entity.getStack(i));
-        }
-        Optional<InfusionTableRecipe> match = world.getRecipeManager()
-                .getFirstMatch(InfusionTableRecipe.Type.INSTANCE, inventory, world);
 
-        return match.isPresent() && canInsertAmountIntoOutputSlot(inventory)
-                && canInsertItemIntoOutputSlot(inventory, match.get().getOutput());
-    }
-
-    private static boolean canInsertItemIntoOutputSlot(SimpleInventory inventory, ItemStack output) {
-        return inventory.getStack(5).getItem() == output.getItem() || inventory.getStack(5).isEmpty();
-    }
-
-    private static boolean canInsertAmountIntoOutputSlot(SimpleInventory inventory) {
-        return inventory.getStack(5).getMaxCount() > inventory.getStack(5).getCount();
-    }
-
-    private static void craftItem(InfusionTableBlockEntity entity) {
+    public static void craftIngot(InfusionTableBlockEntity entity){
         World world = entity.world;
         if(world==null) return;
-        SimpleInventory inventory = new SimpleInventory(entity.inventory.size());
-        for (int i = 0; i < entity.inventory.size(); i++) {
-            inventory.setStack(i, entity.getStack(i));
+
+        for(int i = 0; i<4; i++) {
+            entity.removeStack(i, 1);
         }
-        Optional<InfusionTableRecipe> match = world.getRecipeManager()
-                .getFirstMatch(InfusionTableRecipe.Type.INSTANCE, inventory, world);
+        entity.removeStack(4, 1);
 
-        if(match.isPresent()) {
-            for(int i = 0; i<4; i++) {
-                entity.removeStack(i, 1);
-            }
+        entity.setStack(4, new ItemStack(ModItems.VOID_QUARTZ_INGOT,
+                1));
 
-            entity.setStack(5, new ItemStack(match.get().getOutput().getItem(),
-                    entity.getStack(5).getCount() + 1));
-
-            entity.resetProgress();
+        entity.resetProgress();
         }
+
+
+    public static void craftItem(InfusionTableBlockEntity entity, Item input){
+        World world = entity.world;
+        if(world==null) return;
+
+        for(int i = 0; i<4; i++) {
+            entity.removeStack(i, 1);
+        }
+        entity.removeStack(4, 1);
+
+        entity.setStack(4, new ItemStack(ModResultSlot.IODictionary.get(input),
+                1));
+
+        entity.resetProgress();
     }
 
     private void resetProgress() {
