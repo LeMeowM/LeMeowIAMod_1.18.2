@@ -2,6 +2,7 @@
   "replace": false,
   "values": [
     "aimod:void_quartz_block",
-    "aimod:void_quartz_ore"
+    "aimod:void_quartz_ore",
+    "aimod:infusion_table"
   ]
 }

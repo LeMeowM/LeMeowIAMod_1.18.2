@@ -7,7 +7,7 @@
     "ModEntityDataSaver"
   ],
   "client": [
-    "ExampleMixin"
+    "LightningMixin"
   ],
   "injectors": {
     "defaultRequire": 1

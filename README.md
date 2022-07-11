@@ -38,20 +38,20 @@ void quartz as a new endgame material, more passive mobs, as well as maybe a new
 | Copper Shovel                 |         `aimod.copper_shovel`         |                                              |
 | Copper Sword                  |         `aimod.copper_sword`          |                                              |
 | Void Quartz Block             |       `aimod.void_quartz_block`       |   Missing Textures, Behavior needs fixing    |
-| Void Quartz Ingot             |       `aimod.void_quartz_ingot`       | Behavior Not Implemented & Missing Textures  |
+| Void Quartz Ingot             |       `aimod.void_quartz_ingot`       |               Missing Textures               |
 | Void Quartz Ore               |        `aimod.void_quartz_ore`        | Missing Textures, Behavior needs fine tuning |
-| Void Quartz Shard             |       `aimod.void_quartz_shard`       |           Behavior Not Implemented           |
+| Void Quartz Shard             |       `aimod.void_quartz_shard`       |                                              |
 | Void Quartz Axe               |        `aimod.void_quartz_axe`        |               Missing Textures               |
-| Void Quartz Boots             |       `aimod.void_quartz_boots`       |               Missing Textures               |
-| Void Quartz Chestplate        |    `aimod.void_quartz_chestplate`     |               Missing Textures               |
+| Void Quartz Boots             |       `aimod.void_quartz_boots`       |                                              |
+| Void Quartz Chestplate        |    `aimod.void_quartz_chestplate`     |                                              |
 | Winged Void Quartz Chestplate | `aimod.void_quartz_chestplate_winged` | Behavior Not Implemented & Missing Textures  |
-| Void Quartz Helmet            |      `aimod.void_quartz_helmet`       |               Missing Textures               |
+| Void Quartz Helmet            |      `aimod.void_quartz_helmet`       |                                              |
 | Void Quartz Hoe               |        `aimod.void_quartz_hoe`        |               Missing Textures               |
 | Void Quartz Leggings          |     `aimod.void_quartz_leggings`      |               Missing Textures               |
 | Void Quartz Pickaxe           |      `aimod.void_quartz_pickaxe`      |               Missing Textures               |
 | Void Quartz Shovel            |      `aimod.void_quartz_shovel`       |               Missing Textures               |
 | Void Quartz Sword             |       `aimod.void_quartz_sword`       |               Missing Textures               |
-| Infusion Table                |        `aimod.infusion_table`         |               Missing Textures               |
+| Infusion Table                |        `aimod.infusion_table`         |  Missing Textures, Missing Texture Behavior  |
 |                               |                                       |                                              |
 
 
@@ -76,12 +76,13 @@ void quartz as a new endgame material, more passive mobs, as well as maybe a new
   - [ ] animation
   - [ ] models
   - [ ] ai
+- [ ] Lightning turning sand into glass
 - [ ] void quartz
   - [X] ores -> spawn in the world
   - [X] shards
   - [X] ingots
   - [X] blocks
-  - [X] infusion table -> still need to add crafting recipes
+  - [X] infusion table
   - [ ] tools
     - [ ] axe
     - [ ] hoe

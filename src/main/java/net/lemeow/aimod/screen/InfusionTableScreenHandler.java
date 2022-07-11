@@ -23,7 +23,6 @@ public class InfusionTableScreenHandler extends ScreenHandler {
         this(syncId, playerInventory, new SimpleInventory(5), new ArrayPropertyDelegate(2));
     }
 
-
     // tested this works fine
     public InfusionTableScreenHandler(int syncId, PlayerInventory playerInventory,
                                       Inventory inventory, PropertyDelegate delegate) {
