@@ -1,6 +1,7 @@
 package net.lemeow.aimod.block.entity;
 
 
+import net.lemeow.aimod.block.ModBlocks;
 import net.lemeow.aimod.item.ModItems;
 import net.lemeow.aimod.item.inventory.ImplementedInventory;
 import net.lemeow.aimod.screen.InfusionTableScreenHandler;
@@ -112,16 +113,16 @@ public class InfusionTableBlockEntity extends BlockEntity implements NamedScreen
                 if (entity.progress > entity.maxProgress) {
                     craftIngot(entity);
                 }
-            }
+            } else entity.resetProgress();
         } else if (entity.isFueledByItem(ModItems.VOID_QUARTZ_INGOT)) {
                 if(validInputSources.contains(entity.inventory.get(4).getItem())){
                     entity.progress++;
                     if (entity.progress > entity.maxProgress) {
                         craftItem(entity, entity.inventory.get(4).getItem());
                     }
-                }
+                } else entity.resetProgress();
             }
-        else entity.resetProgress();
+
     }
 
 
@@ -139,6 +140,7 @@ public class InfusionTableBlockEntity extends BlockEntity implements NamedScreen
 
         entity.setStack(4, new ItemStack(ModItems.VOID_QUARTZ_INGOT,
                 1));
+        entity.markDirty();
 
         entity.resetProgress();
         }
@@ -160,7 +162,7 @@ public class InfusionTableBlockEntity extends BlockEntity implements NamedScreen
         // replacing the item
         entity.removeStack(4, 1);
         entity.setStack(4, output);
-
+        entity.markDirty();
         // resetting the infusion progress
         entity.resetProgress();
     }
@@ -179,7 +181,6 @@ public class InfusionTableBlockEntity extends BlockEntity implements NamedScreen
             Items.NETHERITE_PICKAXE,
             Items.NETHERITE_HELMET,
             Items.NETHERITE_BOOTS,
-            Items.NETHERITE_INGOT,
             Items.NETHERITE_LEGGINGS,
             Items.NETHERITE_SHOVEL,
             Items.NETHERITE_SWORD
@@ -192,7 +193,6 @@ public class InfusionTableBlockEntity extends BlockEntity implements NamedScreen
             ModItems.VOID_QUARTZ_PICKAXE,
             ModItems.VOID_QUARTZ_HELMET,
             ModItems.VOID_QUARTZ_BOOTS,
-            ModItems.VOID_QUARTZ_INGOT,
             ModItems.VOID_QUARTZ_LEGGINGS,
             ModItems.VOID_QUARTZ_SHOVEL,
             ModItems.VOID_QUARTZ_SWORD

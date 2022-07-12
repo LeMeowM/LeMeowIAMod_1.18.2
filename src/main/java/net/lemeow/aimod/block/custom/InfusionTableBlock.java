@@ -6,13 +6,19 @@ import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityTicker;
 import net.minecraft.block.entity.BlockEntityType;
+import net.minecraft.block.entity.JukeboxBlockEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.inventory.Inventory;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemPlacementContext;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.MusicDiscItem;
 import net.minecraft.screen.NamedScreenHandlerFactory;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.DirectionProperty;
 import net.minecraft.state.property.Properties;
 import net.minecraft.util.*;
+import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
@@ -94,5 +100,21 @@ public class InfusionTableBlock extends BlockWithEntity implements BlockEntityPr
         return checkType(type, ModBlockEntities.INFUSION_TABLE, InfusionTableBlockEntity::tick);
     }
 
+    @Override
+    public int getComparatorOutput(BlockState state, World world, BlockPos pos) {
+        BlockEntity blockEntity = world.getBlockEntity(pos);
+        int count = 0, inv = 0;
+        if (blockEntity instanceof InfusionTableBlockEntity) {
+            DefaultedList<ItemStack> inventory = ((InfusionTableBlockEntity) blockEntity).getItems();
+            for(int i = 0; i<4; i++){
+                inv+= inventory.get(i).getCount();
+            }
+            count += inventory.get(4).getCount()*8 + (int)(inv*0.02734375);
+        }
+        return count;
+    }
 
+    public boolean hasComparatorOutput(BlockState state) {
+        return true;
+    }
 }

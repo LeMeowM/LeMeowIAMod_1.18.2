@@ -1,6 +1,7 @@
 package net.lemeow.aimod.screen;
 
 
+import net.lemeow.aimod.block.ModBlocks;
 import net.lemeow.aimod.screen.slot.ModResultSlot;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
