@@ -5,10 +5,7 @@ import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.LightningEntity;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.Direction;
 import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.Shadow;
-import org.spongepowered.asm.mixin.gen.Accessor;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
@@ -34,7 +31,7 @@ public abstract class LightningMixin {
 		BlockState glass = Blocks.GLASS.getDefaultState();
 
 		int x, y, z, l;
-		l = ((int) (Math.random()*10))+1;
+		l = ((int) (Math.random()*3))+1;
 		for(int i=0; i< l; ++i){
 			x = ((int) (Math.random()*3))-1;
 			y = ((int) (Math.random()*3))-2;
