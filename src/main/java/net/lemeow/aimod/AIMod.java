@@ -6,6 +6,7 @@ import net.lemeow.aimod.block.entity.ModBlockEntities;
 import net.lemeow.aimod.item.ModItems;
 import net.lemeow.aimod.recipe.ModRecipes;
 import net.lemeow.aimod.screen.ModScreenHandlers;
+import net.lemeow.aimod.util.ModLootTableModifiers;
 import net.lemeow.aimod.util.ModRegistries;
 import net.lemeow.aimod.world.gen.ModOreGeneration;
 import net.lemeow.aimod.world.gen.ModWorldGen;
@@ -39,5 +40,6 @@ public class AIMod implements ModInitializer {
 
 
 		ModWorldGen.generateModWorldGen();
+		ModLootTableModifiers.modifyLootTables();
 	}
 }

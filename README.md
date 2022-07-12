@@ -62,7 +62,7 @@ void quartz as a new endgame material, more passive mobs, as well as maybe a new
 ## MISSING CODE
 - [X] copper horse armor
   - [X] textures
-  - [ ] add to minecraft loot table
+  - [X] add to minecraft loot table
 - [X] copper nugget textures
 - [ ] capybara
   - [ ] animation
@@ -76,7 +76,7 @@ void quartz as a new endgame material, more passive mobs, as well as maybe a new
   - [ ] animation
   - [ ] models
   - [ ] ai
-- [ ] Lightning turning sand into glass
+- [X] Lightning turning sand into glass
 - [ ] void quartz
   - [X] ores -> spawn in the world
   - [X] shards
