@@ -82,7 +82,7 @@ void quartz as a new endgame material, more passive mobs, as well as maybe a new
   - [X] shards
   - [X] ingots
   - [X] blocks
-  - [X] infusion table
+  - [X] infusion table -> works with comparators
   - [ ] tools
     - [ ] axe
     - [ ] hoe
@@ -95,6 +95,7 @@ void quartz as a new endgame material, more passive mobs, as well as maybe a new
     - [ ] (elytra?)
     - [X] leggings
     - [X] boots
+- [ ] maybe end biomes??
 
 ## MISSING TEXTURES
 - [X] copper horse armor

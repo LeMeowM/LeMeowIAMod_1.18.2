@@ -32,5 +32,7 @@
   "item.aimod.void_quartz_leggings": "Void Quartz Leggings",
   "item.aimod.void_quartz_boots": "Void Quartz Boots",
 
-  "block.aimod.infusion_table": "Infusion Table"
+  "block.aimod.infusion_table": "Infusion Table",
+
+  "biome.aimod.end_forest": "End Forest"
 }

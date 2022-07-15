@@ -10,6 +10,7 @@ import net.lemeow.aimod.util.ModLootTableModifiers;
 import net.lemeow.aimod.util.ModRegistries;
 import net.lemeow.aimod.world.gen.ModOreGeneration;
 import net.lemeow.aimod.world.gen.ModWorldGen;
+import net.lemeow.aimod.world.generator.EndGeneratorOptions;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -38,8 +39,8 @@ public class AIMod implements ModInitializer {
 		ModBlockEntities.registerAllBlockEntities();
 		ModRecipes.registerRecipes();
 
-
 		ModWorldGen.generateModWorldGen();
+		EndGeneratorOptions.init();
 		ModLootTableModifiers.modifyLootTables();
 	}
 }
