@@ -5,6 +5,7 @@ import net.lemeow.aimod.block.ModBlocks;
 import net.lemeow.aimod.item.ModItems;
 import net.lemeow.aimod.item.inventory.ImplementedInventory;
 import net.lemeow.aimod.screen.InfusionTableScreenHandler;
+import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -114,7 +115,9 @@ public class InfusionTableBlockEntity extends BlockEntity implements NamedScreen
                     craftIngot(entity);
                 }
             } else entity.resetProgress();
-        } else if (entity.isFueledByItem(ModItems.VOID_QUARTZ_INGOT)) {
+        }
+        // softcoding in the tools crafting
+        else if (entity.isFueledByItem(ModItems.VOID_QUARTZ_INGOT)) {
                 if(validInputSources.contains(entity.inventory.get(4).getItem())){
                     entity.progress++;
                     if (entity.progress > entity.maxProgress) {
@@ -122,6 +125,13 @@ public class InfusionTableBlockEntity extends BlockEntity implements NamedScreen
                     }
                 } else entity.resetProgress();
             }
+
+        // dropping items if the block is broken, this doesnt seem very efficient but its ok
+        if(entity.removed){
+            for(ItemStack itemStack: entity.inventory){
+                Block.dropStack(world, pos, itemStack);
+            }
+        }
 
     }
 
