@@ -21,8 +21,12 @@ public class ModBlocks {
             new Block(FabricBlockSettings.of(Material.STONE).requiresTool().strength(50f, 1200f)),
             ItemGroup.BUILDING_BLOCKS);
 
-    public static final Block VOID_QUARTZ_BLOCK = registerBlock("void_quartz_block",
+    public static final Block VOID_QUARTZ_INGOT_BLOCK = registerBlock("void_quartz_ingot_block",
             new Block(FabricBlockSettings.of(Material.METAL).strength(50f, 1200f).requiresTool()),
+            ItemGroup.MISC);
+
+    public static final Block VOID_QUARTZ_BLOCK = registerBlock("void_quartz_block",
+            new Block(FabricBlockSettings.of(Material.GLASS).strength(5f, 50f).requiresTool()),
             ItemGroup.MISC);
 
     public static final Block INFUSION_TABLE = registerVoidBlock("infusion_table",

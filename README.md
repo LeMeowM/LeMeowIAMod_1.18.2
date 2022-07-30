@@ -113,19 +113,19 @@ void quartz as a new endgame material, more passive mobs, as well as maybe a new
   - [ ] ores
   - [X] shards
   - [ ] ingots
-  - [ ] blocks
+  - [X] blocks
   - [ ] crafting bench
-  - [ ] tools
-    - [ ] axe
-    - [ ] hoe
-    - [ ] pickaxe
-    - [ ] shovel
-    - [ ] sword
+  - [X] tools
+    - [X] axe
+    - [X] hoe
+    - [X] pickaxe
+    - [X] shovel
+    - [X] sword
   - [ ] armor
-    - [ ] helmet
+    - [X] helmet
     - [ ] chestplate (elytra?)
-    - [ ] leggings
-    - [ ] boots
+    - [X] leggings
+    - [X] boots
 
 ### ALL CREDIT FOR ART *EXCEPT THE COVER AND INFUSION TABLE* GOES TO [SAMANTHA STINSON](https://instagram.com/hellspawn_exhibit?igshid=YmMyMTA2M2Y=)
 ### SPECIAL THANKS TO HARRISON HOLLAND FOR HELPING BALANCING AND DESIGNING THE VOID QUARTZ
