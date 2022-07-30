@@ -18,6 +18,7 @@ repositories {
 	// for more information about repositories.
 	// Using Geckolib so I don't have to handle animations
 	maven { url 'https://dl.cloudsmith.io/public/geckolib3/geckolib/maven/' }
+	maven { url 'https://jitpack.io' }
 
 }
 
@@ -31,6 +32,9 @@ dependencies {
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 	// Adding Geckolib dependency to this mod
 	modImplementation 'software.bernie.geckolib:geckolib-fabric-1.18:3.0.50'
+
+	modImplementation "com.github.quiqueck:BCLib:${project.bclib_version}"
+
 }
 
 processResources {
