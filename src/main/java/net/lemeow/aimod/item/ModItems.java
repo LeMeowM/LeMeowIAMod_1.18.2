@@ -88,10 +88,11 @@ public class ModItems {
                     new FabricItemSettings().group(ItemGroup.COMBAT).fireproof().rarity(Rarity.EPIC)));
 
 
+    /*
     public static final Item VOID_QUARTZ_CHESTPLATE_WINGS = registerItem("void_quartz_chestplate_wings",
             new ModCustomChestplate(ModArmorMaterials.VOID_QUARTZ, EquipmentSlot.CHEST,
                     new FabricItemSettings().group(ItemGroup.TRANSPORTATION).fireproof().rarity(Rarity.EPIC)));
-
+    */
     public static final Item VOID_QUARTZ_LEGGINGS = registerItem("void_quartz_leggings",
             new ArmorItem(ModArmorMaterials.VOID_QUARTZ, EquipmentSlot.LEGS,
                     new FabricItemSettings().group(ItemGroup.COMBAT).fireproof().rarity(Rarity.EPIC)));

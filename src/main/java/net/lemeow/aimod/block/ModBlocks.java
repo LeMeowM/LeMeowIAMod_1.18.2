@@ -19,17 +19,17 @@ public class ModBlocks {
 
     // Void Quartz Blocks Inputs
 
-    public static final Block VOID_QUARTZ_ORE = registerBlock("void_quartz_ore",
+    public static final Block VOID_QUARTZ_ORE = registerVoidBlock("void_quartz_ore",
             new OreBlock(FabricBlockSettings.of(Material.STONE).requiresTool().strength(50f, 1200f)),
             ItemGroup.BUILDING_BLOCKS,
             UniformIntProvider.create(5, 10));
 
 
-    public static final Block VOID_QUARTZ_INGOT_BLOCK = registerBlock("void_quartz_ingot_block",
+    public static final Block VOID_QUARTZ_INGOT_BLOCK = registerVoidBlock("void_quartz_ingot_block",
             new Block(FabricBlockSettings.of(Material.METAL).strength(50f, 1200f).requiresTool()),
             ItemGroup.MISC, UniformIntProvider.create(5, 10));
 
-    public static final Block VOID_QUARTZ_BLOCK = registerBlock("void_quartz_block",
+    public static final Block VOID_QUARTZ_BLOCK = registerVoidBlock("void_quartz_block",
             new Block(FabricBlockSettings.of(Material.GLASS).strength(5f, 50f).requiresTool()),
             ItemGroup.MISC);
 
@@ -50,6 +50,11 @@ public class ModBlocks {
     }
 
     public static Block registerVoidBlock(String name, Block block, ItemGroup group){
+        registerVoidItem(name, block, group);
+        return Registry.register(Registry.BLOCK, new Identifier(AIMod.MOD_ID, name), block);
+    }
+
+    public static Block registerVoidBlock(String name, Block block, ItemGroup group, UniformIntProvider intProvider){
         registerVoidItem(name, block, group);
         return Registry.register(Registry.BLOCK, new Identifier(AIMod.MOD_ID, name), block);
     }

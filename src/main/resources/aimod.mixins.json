@@ -7,7 +7,9 @@
     "ModEntityDataSaver"
   ],
   "client": [
-    "LightningMixin"
+    "LightningMixin",
+    "MixinLivingEntity",
+    "MixinArmorRenderer"
   ],
   "injectors": {
     "defaultRequire": 1
