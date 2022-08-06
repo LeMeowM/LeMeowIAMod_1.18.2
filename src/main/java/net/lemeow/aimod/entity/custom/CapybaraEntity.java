@@ -2,21 +2,27 @@ package net.lemeow.aimod.entity.custom;
 
 import net.lemeow.aimod.entity.ai.WaterChillGoal;
 import net.minecraft.block.BlockState;
+import net.minecraft.block.Blocks;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.damage.DamageSource;
+import net.minecraft.entity.data.TrackedData;
 import net.minecraft.entity.passive.AnimalEntity;
 import net.minecraft.entity.passive.CatEntity;
 import net.minecraft.entity.passive.PassiveEntity;
 import net.minecraft.entity.passive.WolfEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
+import net.minecraft.nbt.NbtCompound;
+import net.minecraft.nbt.NbtList;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
+import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
@@ -28,13 +34,76 @@ import software.bernie.geckolib3.core.event.predicate.AnimationEvent;
 import software.bernie.geckolib3.core.manager.AnimationData;
 import software.bernie.geckolib3.core.manager.AnimationFactory;
 
-public class CapybaraEntity extends AnimalEntity implements IAnimatable {
+public class CapybaraEntity extends AbstractCapybaraEntity implements IAnimatable {
     private AnimationFactory factory = new AnimationFactory(this);
-
+    private final DefaultedList<ItemStack> inventory =
+            DefaultedList.ofSize(16, ItemStack.EMPTY);
 
     public CapybaraEntity(EntityType<? extends AnimalEntity> entityType, World world) {
         super(entityType, world);
     }
+
+
+
+    protected int getInventorySize() {
+        return this.hasChest() ? 17 : super.getInventorySize();
+    }
+
+    protected void dropInventory() {
+        super.dropInventory();
+        if (this.hasChest()) {
+            if (!this.world.isClient) {
+                for(ItemStack itemStack: inventory){
+                    this.dropStack(itemStack);
+                }
+                this.dropItem(Blocks.CHEST);
+            }
+            this.setHasChest(false);
+        }
+
+    }
+
+    public void writeCustomDataToNbt(NbtCompound nbt) {
+        super.writeCustomDataToNbt(nbt);
+        nbt.putBoolean("ChestedHorse", this.hasChest());
+        if (this.hasChest()) {
+            NbtList nbtList = new NbtList();
+
+            for(int i = 2; i < this.items.size(); ++i) {
+                ItemStack itemStack = this.items.getStack(i);
+                if (!itemStack.isEmpty()) {
+                    NbtCompound nbtCompound = new NbtCompound();
+                    nbtCompound.putByte("Slot", (byte)i);
+                    itemStack.writeNbt(nbtCompound);
+                    nbtList.add(nbtCompound);
+                }
+            }
+
+            nbt.put("Items", nbtList);
+        }
+
+    }
+
+    public void readCustomDataFromNbt(NbtCompound nbt) {
+        super.readCustomDataFromNbt(nbt);
+        this.setHasChest(nbt.getBoolean("ChestedHorse"));
+        this.onChestedStatusChanged();
+        if (this.hasChest()) {
+            NbtList nbtList = nbt.getList("Items", 10);
+
+            for(int i = 0; i < nbtList.size(); ++i) {
+                NbtCompound nbtCompound = nbtList.getCompound(i);
+                int j = nbtCompound.getByte("Slot") & 255;
+                if (j >= 2 && j < this.items.size()) {
+                    this.items.setStack(j, ItemStack.fromNbt(nbtCompound));
+                }
+            }
+        }
+
+        this.updateSaddle();
+    }
+
+
 
     public static DefaultAttributeContainer.Builder setAttributes(){
         return AnimalEntity.createMobAttributes()
