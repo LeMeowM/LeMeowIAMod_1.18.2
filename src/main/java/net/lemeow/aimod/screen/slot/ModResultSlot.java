@@ -15,8 +15,9 @@ public class ModResultSlot extends Slot {
 
 
 
+    // jesus kill me for this sin, but at least i dont need to care about it
     public boolean canInsert(ItemStack stack){
-        return InfusionTableBlockEntity.validInputSources.contains(stack.getItem())||stack.isItemEqual(new ItemStack(Items.NETHERITE_INGOT));
+        return true;
     }
 
 

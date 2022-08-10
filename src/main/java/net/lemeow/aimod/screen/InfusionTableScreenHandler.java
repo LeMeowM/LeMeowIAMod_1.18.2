@@ -1,11 +1,10 @@
 package net.lemeow.aimod.screen;
 
 
-import net.lemeow.aimod.block.ModBlocks;
+
 import net.lemeow.aimod.screen.slot.ModResultSlot;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
-import net.minecraft.inventory.Inventory;
 import net.minecraft.inventory.SimpleInventory;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -16,7 +15,7 @@ import net.minecraft.screen.slot.Slot;
 
 
 public class InfusionTableScreenHandler extends ScreenHandler {
-    private final Inventory inventory;
+    private final SimpleInventory inventory;
     private final PropertyDelegate propertyDelegate;
 
 
@@ -26,7 +25,7 @@ public class InfusionTableScreenHandler extends ScreenHandler {
 
     // tested this works fine
     public InfusionTableScreenHandler(int syncId, PlayerInventory playerInventory,
-                                      Inventory inventory, PropertyDelegate delegate) {
+                                      SimpleInventory inventory, PropertyDelegate delegate) {
         super(ModScreenHandlers.INFUSION_TABLE_SCREEN_HANDLER, syncId);
 
         checkSize(inventory, 4);
@@ -60,10 +59,15 @@ public class InfusionTableScreenHandler extends ScreenHandler {
         return this.inventory.canPlayerUse(player);
     }
 
+
+    // this is to move blocks from one place to another
     @Override
     public ItemStack transferSlot(PlayerEntity player, int invSlot) {
+        // gets the slot of index invSlot
         Slot slot = this.slots.get(invSlot);
+        // creates a new empty stack -> the one that will be replacing the stack in said index slot
         ItemStack newStack = ItemStack.EMPTY;
+        // checks if the slot that we're trying to move to exists and if that slot already has items, if both yes
         if(slot != null && slot.hasStack()){
             ItemStack ogStack = slot.getStack();
             newStack = ogStack.copy();
@@ -107,7 +111,7 @@ public class InfusionTableScreenHandler extends ScreenHandler {
     }
 
     public Item getResultSlot(){
-        return inventory.getStack(5).getItem();
+        return inventory.getStack(4).getItem();
     }
 
 

@@ -1,0 +1,12 @@
+{
+  "type": "aimod:infusion_table",
+  "input": {
+    "item": "minecraft:netherite_helmet"
+  },
+  "fuel": {
+    "item": "aimod:void_quartz_ingot"
+  },
+  "output": {
+    "item": "aimod:void_quartz_helmet"
+  }
+}

@@ -30,6 +30,7 @@ public class AIMod implements ModInitializer {
 		LOGGER.info("Hello Fabric world!");
 		ModItems.registerModItems();
 		ModBlocks.registerMudBlocks();
+		ModRecipes.registerRecipes();
 
 		ModRegistries.registerModStuff();
 		ModScreenHandlers.registerAllScreenHandlers();
@@ -37,7 +38,7 @@ public class AIMod implements ModInitializer {
 		ModOreGeneration.registerConfiguredFeatures();
 
 		ModBlockEntities.registerAllBlockEntities();
-		ModRecipes.registerRecipes();
+
 
 		ModWorldGen.generateModWorldGen();
 		EndGeneratorOptions.init();

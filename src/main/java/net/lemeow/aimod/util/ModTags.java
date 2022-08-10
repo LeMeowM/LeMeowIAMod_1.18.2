@@ -3,6 +3,7 @@ package net.lemeow.aimod.util;
 import net.lemeow.aimod.AIMod;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
+import net.minecraft.tag.Tag;
 import net.minecraft.tag.TagKey;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
@@ -22,6 +23,7 @@ public class ModTags {
     }
 
     public static class Items {
+        public static final TagKey<Item> NETHERITES = createTag("netherites");
 
 
         private static TagKey<Item> createTag(String name){

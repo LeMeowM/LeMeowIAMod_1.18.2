@@ -1,0 +1,12 @@
+{
+  "type": "aimod:infusion_table",
+  "input": {
+    "item": "minecraft:netherite_ingot"
+  },
+  "fuel": {
+    "item": "aimod:void_quartz_shard"
+  },
+  "output": {
+    "item": "aimod:void_quartz_ingot"
+  }
+}

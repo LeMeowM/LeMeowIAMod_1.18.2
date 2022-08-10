@@ -2,32 +2,79 @@ package net.lemeow.aimod.recipe;
 
 
 
+import com.google.gson.JsonObject;
+import net.minecraft.inventory.SimpleInventory;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
+import net.minecraft.network.PacketByteBuf;
 import net.minecraft.recipe.*;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.JsonHelper;
+import net.minecraft.world.World;
 
 
+public class InfusionTableRecipe implements Recipe<SimpleInventory> {
 
-public class InfusionTableRecipe extends AbstractCookingRecipe{
+    private final Identifier id;
+    private final Ingredient input;
+    private final Ingredient fuel;
+    private final ItemStack output;
 
-    public static final RecipeType<InfusionTableRecipe> INFUSING = RecipeType.register("infusing");
+    public InfusionTableRecipe(Identifier id, Ingredient input, Ingredient fuel, ItemStack output) {
+        this.id = id;
+        this.input = input;
+        this.fuel = fuel;
+        this.output = output;
+    }
+    public Ingredient getFuel(){
+        return fuel;
+    }
 
-    public InfusionTableRecipe(Identifier id, String group, Ingredient input, ItemStack output, float experience, int cookTime) {
-        super( INFUSING , id, group, input, output,  0.0F, 6000);
+    public Ingredient getInput(){
+        return input;
+    }
+
+    public static boolean isFueledByItem(SimpleInventory inventory, Ingredient item){
+        for(int i = 0; i<4; i++){
+            if(!item.test(inventory.getStack(i))) return false;
+        }
+        return true;
     }
 
 
-
-    public Ingredient getInput() {
-        return super.input;
+    // write the matches thing based on the simpleinventory system
+    @Override
+    public boolean matches(SimpleInventory inventory, World world) {
+        if(isFueledByItem(inventory, fuel)){
+            return input.test(inventory.getStack(4));
+        }
+        return false;
     }
 
+    @Override
+    public ItemStack craft(SimpleInventory inventory) {
+        return output.copy();
+    }
 
+    @Override
+    public boolean fits(int width, int height) {
+        return true;
+    }
+
+    @Override
+    public ItemStack getOutput() {
+        return output.copy();
+    }
+
+    @Override
+    public Identifier getId() {
+        return id;
+    }
 
     @Override
     public RecipeSerializer<?> getSerializer() {
-        return ModSerializer.INSTANCE;
+        return Serializer.INSTANCE;
     }
 
     @Override
@@ -42,8 +89,6 @@ public class InfusionTableRecipe extends AbstractCookingRecipe{
     }
 
 
-
-    /*
     public static class Serializer implements  RecipeSerializer<InfusionTableRecipe> {
         public static final Serializer INSTANCE = new Serializer();
 
@@ -51,53 +96,47 @@ public class InfusionTableRecipe extends AbstractCookingRecipe{
         public static final String ID = "infusion_table";
 
 
-        // for in person, only one necessary apparently but i want server possibility
+        // for in person, only one necessary apparently but I want server possibility
         @Override
         public InfusionTableRecipe read(Identifier id, JsonObject json) {
+            // using sharedrecipe's outputFromJson method bc I don't want to write my own
             ItemStack output = ShapedRecipe.outputFromJson(JsonHelper.getObject(json, "output"));
 
-            JsonArray ingredients = JsonHelper.getArray(json, "ingredients");
-            DefaultedList<Ingredient> inputs = DefaultedList.ofSize(25, Ingredient.EMPTY);
+            Ingredient ingredients = Ingredient.fromJson(JsonHelper.getObject(json, "input"));
 
-            for (int i = 0; i < inputs.size(); i++){
-                inputs.set(i, Ingredient.fromJson(ingredients.get(i)));
-            }
+            Ingredient fuel = Ingredient.fromJson(JsonHelper.getObject(json, "fuel"));
 
-            return new InfusionTableRecipe(id, output, inputs);
+            return new InfusionTableRecipe(id, ingredients, fuel, output);
         }
 
-        // for server, wtf is PacketByteBuf?? why does this work???
+        // FIGURED IT OUT, THESE 2 HAVE TO MATCH UP
         @Override
         public InfusionTableRecipe read(Identifier id, PacketByteBuf buf) {
 
-            // I have no idea how this works but the Fabric help discord said apparently I have to do it this way???
-            DefaultedList<Ingredient> inputs = DefaultedList.ofSize(buf.readInt(), Ingredient.EMPTY);
+            //reading input
+            Ingredient input = Ingredient.fromPacket(buf);
 
-            for (int i = 0; i < inputs.size(); i++){
-                inputs.set(i, Ingredient.fromPacket(buf));
-            }
+            // reading fuel
 
+            Ingredient fuel = Ingredient.fromPacket(buf);
+
+            // reading the output
             ItemStack output = buf.readItemStack();
-            return new InfusionTableRecipe(id, output, inputs);
+
+            // returing the recipe we use
+            return new InfusionTableRecipe(id, input, fuel, output);
 
 
         }
 
 
-        // also for server, again carried by the fabric discord help channel, no idea why this is working
-        // i think buf is a tool for the player to communicate with the server and its built in this way but i cant seem to
-        // understand the documentation?
 
         @Override
         public void write(PacketByteBuf buf, InfusionTableRecipe recipe) {
-            buf.writeInt(recipe.getIngredients().size());
-
-            for (Ingredient ing: recipe.getIngredients()){
-                ing.write(buf);
-            }
+            recipe.input.write(buf);
+            recipe.fuel.write(buf);
             buf.writeItemStack(recipe.getOutput());
         }
-
-        */
+    }
 }
 
