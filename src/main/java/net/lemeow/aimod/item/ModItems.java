@@ -134,7 +134,7 @@ public class ModItems {
             .group(ItemGroup.FOOD).food(ModFoodComponents.SHEEP_CHEESE))
     );
 
-    public static final Item GOAT_CHEESE = registerItem("GOAT_cheese", new Item(new FabricItemSettings()
+    public static final Item GOAT_CHEESE = registerItem("goat_cheese", new Item(new FabricItemSettings()
             .group(ItemGroup.FOOD).food(ModFoodComponents.GOAT_CHEESE))
     );
 
