@@ -3,6 +3,7 @@ package net.lemeow.aimod;
 import net.fabricmc.api.ModInitializer;
 import net.lemeow.aimod.block.ModBlocks;
 import net.lemeow.aimod.block.entity.ModBlockEntities;
+import net.lemeow.aimod.item.ModFoodComponents;
 import net.lemeow.aimod.item.ModItems;
 import net.lemeow.aimod.recipe.ModRecipes;
 import net.lemeow.aimod.screen.ModScreenHandlers;
@@ -31,6 +32,7 @@ public class AIMod implements ModInitializer {
 		ModItems.registerModItems();
 		ModBlocks.registerMudBlocks();
 		ModRecipes.registerRecipes();
+		ModFoodComponents.registerModFoodComponents();
 
 		ModRegistries.registerModStuff();
 		ModScreenHandlers.registerAllScreenHandlers();

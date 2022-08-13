@@ -33,6 +33,10 @@
   "item.aimod.void_quartz_leggings": "Void Quartz Leggings",
   "item.aimod.void_quartz_boots": "Void Quartz Boots",
 
+
+  "item.aimod.sheep_milk_bucket": "Sheep Milk Bucket",
+  "item.aimod.goat_milk_bucket": "Goat Milk Bucket",
+
   "block.aimod.infusion_table": "Infusion Table",
 
   "biome.aimod.end_forest": "End Forest"

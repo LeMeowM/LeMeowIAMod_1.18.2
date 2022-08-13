@@ -18,8 +18,8 @@ public abstract class LightningMixin {
 					shift = At.Shift.AFTER
 			),
 			method = "tick")
-	private void init(CallbackInfo info) {
-		AIMod.LOGGER.info("Injecting for lightning strikes");
+	private void aimodLightningAddGlass(CallbackInfo info) {
+		AIMod.LOGGER.info("Injecting into LightningEntity");
 		makeSand();
 	}
 

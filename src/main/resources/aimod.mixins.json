@@ -4,10 +4,12 @@
   "package": "net.lemeow.aimod.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
-    "ModEntityDataSaver"
+    "ModEntityDataSaver",
+    "MixinGoatEntity",
+    "LightningMixin",
+    "MixinSheepEntity"
   ],
   "client": [
-    "LightningMixin",
     "MixinLivingEntity",
     "MixinArmorRenderer"
   ],

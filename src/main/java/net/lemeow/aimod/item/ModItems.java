@@ -124,6 +124,29 @@ public class ModItems {
             new ModCopperHoe(ModToolMaterials.VOID_QUARTZ, -5, 0F,
                     new FabricItemSettings().group(ItemGroup.TOOLS).fireproof().rarity(Rarity.EPIC)));
 
+    // foods
+
+    public static final Item COW_CHEESE = registerItem("cow_cheese", new Item(new FabricItemSettings()
+            .group(ItemGroup.FOOD).food(ModFoodComponents.COW_CHEESE))
+    );
+
+    public static final Item SHEEP_CHEESE = registerItem("sheep_cheese", new Item(new FabricItemSettings()
+            .group(ItemGroup.FOOD).food(ModFoodComponents.SHEEP_CHEESE))
+    );
+
+    public static final Item GOAT_CHEESE = registerItem("GOAT_cheese", new Item(new FabricItemSettings()
+            .group(ItemGroup.FOOD).food(ModFoodComponents.GOAT_CHEESE))
+    );
+
+    public static final Item GOAT_MILK_BUCKET = registerItem("goat_milk_bucket",
+            (new MilkBucketItem((new Item.Settings()).recipeRemainder(Items.BUCKET).maxCount(1)
+                    .group(ItemGroup.MISC))));
+
+
+    public static final Item SHEEP_MILK_BUCKET = registerItem("sheep_milk_bucket",
+            (new MilkBucketItem((new Item.Settings()).recipeRemainder(Items.BUCKET).maxCount(1)
+                    .group(ItemGroup.MISC))));
+
 
 
 
