@@ -15,9 +15,6 @@ public class ModBlockEntities {
                 new Identifier(AIMod.MOD_ID, "infusion_table"),
                 FabricBlockEntityTypeBuilder.create(InfusionTableBlockEntity:: new,
                         ModBlocks.INFUSION_TABLE).build(null));
-
-
-
     }
 
 }

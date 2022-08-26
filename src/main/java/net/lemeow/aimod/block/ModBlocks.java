@@ -3,6 +3,7 @@ package net.lemeow.aimod.block;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.lemeow.aimod.AIMod;
+import net.lemeow.aimod.block.custom.cheesemold.AbstractCheeseMoldBlock;
 import net.lemeow.aimod.block.custom.InfusionTableBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.Material;
@@ -37,11 +38,36 @@ public class ModBlocks {
             new InfusionTableBlock(FabricBlockSettings.of(Material.STONE).strength(50f,1200f).requiresTool()),
             ItemGroup.BUILDING_BLOCKS);
 
+    // Foods
+
+    public static final Block EMPTY_CHEESE_MOLD_BLOCK = registerBlock("cheese_mold_block",
+            new AbstractCheeseMoldBlock(FabricBlockSettings.of(Material.WOOD).strength(5f)),
+            ItemGroup.MISC);
+
+
+    public static final Block SHEEP_CHEESE_MOLD_BLOCK = registerBlock("sheep_cheese_mold_block",
+            new AbstractCheeseMoldBlock(FabricBlockSettings.of(Material.WOOD).strength(5f)),
+            ItemGroup.MISC);
+
+    public static final Block GOAT_CHEESE_MOLD_BLOCK = registerBlock("goat_cheese_mold_block",
+            new AbstractCheeseMoldBlock(FabricBlockSettings.of(Material.WOOD).strength(5f)),
+            ItemGroup.MISC);
+
+    public static final Block COW_CHEESE_MOLD_BLOCK = registerBlock("cow_cheese_mold_block",
+            new AbstractCheeseMoldBlock(FabricBlockSettings.of(Material.WOOD).strength(5f)),
+            ItemGroup.MISC);
+
+
 
 
 
     // End Forest Blocks?
 
+
+    public static Block registerBlock(String name, Block block, ItemGroup group){
+        registerBlockItem(name, block, group);
+        return Registry.register(Registry.BLOCK, new Identifier(AIMod.MOD_ID, name), block);
+    }
 
 
     public static Block registerBlock(String name, Block block, ItemGroup group, UniformIntProvider uniformIntProvider){
@@ -59,6 +85,7 @@ public class ModBlocks {
         return Registry.register(Registry.BLOCK, new Identifier(AIMod.MOD_ID, name), block);
     }
 
+    // items
     private static Item registerBlockItem(String name, Block block, ItemGroup group){
         return Registry.register(Registry.ITEM, new Identifier(AIMod.MOD_ID, name),
                 new BlockItem(block, new FabricItemSettings().group(group)));
