@@ -32,7 +32,6 @@ public class InfusionTableScreen extends HandledScreen<InfusionTableScreenHandle
     @Override
     protected void drawBackground(MatrixStack matrices, float delta, int mouseX, int mouseY) {
 
-        // dont actually know how these work
         RenderSystem.setShader(GameRenderer::getPositionTexShader);
         RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 0.0F);
         RenderSystem.setShaderTexture(0, TEXTURE);

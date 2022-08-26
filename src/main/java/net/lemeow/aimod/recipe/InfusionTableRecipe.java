@@ -100,6 +100,7 @@ public class InfusionTableRecipe implements Recipe<SimpleInventory> {
         @Override
         public InfusionTableRecipe read(Identifier id, JsonObject json) {
             // using sharedrecipe's outputFromJson method bc I don't want to write my own
+            // nevemind wrote my own
             ItemStack output = ShapedRecipe.outputFromJson(JsonHelper.getObject(json, "output"));
 
             Ingredient ingredients = Ingredient.fromJson(JsonHelper.getObject(json, "input"));
