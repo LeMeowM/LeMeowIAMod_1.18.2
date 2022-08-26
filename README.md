@@ -44,7 +44,7 @@ void quartz as a new endgame material, more passive mobs, as well as maybe a new
 | Void Quartz Axe               |        `iamod.void_quartz_axe`        |                                            |
 | Void Quartz Boots             |       `iamod.void_quartz_boots`       |                                            |
 | Void Quartz Chestplate        |    `iamod.void_quartz_chestplate`     |                                            |
-| Winged Void Quartz Chestplate | `iamod.void_quartz_chestplate_winged` |        Missing Textures & Renderer         |
+| Winged Void Quartz Chestplate | `iamod.void_quartz_chestplate_winged` |              Missing Renderer              |
 | Void Quartz Helmet            |      `iamod.void_quartz_helmet`       |                                            |
 | Void Quartz Hoe               |        `iamod.void_quartz_hoe`        |                                            |
 | Void Quartz Leggings          |     `iamod.void_quartz_leggings`      |                                            |

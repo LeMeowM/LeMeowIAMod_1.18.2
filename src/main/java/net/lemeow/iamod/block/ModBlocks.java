@@ -98,6 +98,6 @@ public class ModBlocks {
 
 
     public static void registerMudBlocks(){
-        IAMod.LOGGER.info("Registering ModBlocks for" + IAMod.MOD_ID);
+        IAMod.LOGGER.info("Registering ModBlocks for " + IAMod.MOD_ID);
     }
 }
