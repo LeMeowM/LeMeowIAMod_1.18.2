@@ -1,9 +1,9 @@
 {
   "replace": false,
   "values": [
-    "aimod:void_quartz_block",
-    "aimod:void_quartz_ingot_block",
-    "aimod:void_quartz_ore",
-    "aimod:infusion_table"
+    "iamod:void_quartz_block",
+    "iamod:void_quartz_ingot_block",
+    "iamod:void_quartz_ore",
+    "iamod:infusion_table"
   ]
 }

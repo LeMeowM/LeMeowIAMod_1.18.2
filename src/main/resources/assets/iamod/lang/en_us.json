@@ -1,0 +1,43 @@
+{
+
+  "item.iamod.copper_pickaxe": "Copper Pickaxe",
+  "item.iamod.copper_axe": "Copper Axe",
+  "item.iamod.copper_shovel": "Copper Shovel",
+  "item.iamod.copper_sword": "Copper Sword",
+  "item.iamod.copper_hoe": "Copper Hoe",
+
+  "item.iamod.copper_helmet": "Copper Helmet",
+  "item.iamod.copper_chestplate": "Copper Chestplate",
+  "item.iamod.copper_leggings": "Copper Leggings",
+  "item.iamod.copper_boots": "Copper Boots",
+  "item.iamod.copper_horse_armor": "Copper Horse Armor",
+
+  "item.iamod.copper_nugget": "Copper Nuggets",
+
+  "item.iamod.void_quartz_shard": "Void Quartz Shard",
+  "item.iamod.void_quartz_ingot": "Void Quartz Ingot",
+
+  "block.iamod.void_quartz_block": "Void Quartz Block",
+  "block.iamod.void_quartz_ingot_block": "Void Quartz Ingot Block",
+  "block.iamod.void_quartz_ore": "Void Quartz Ore",
+
+  "item.iamod.void_quartz_pickaxe": "Void Quartz Pickaxe",
+  "item.iamod.void_quartz_axe": "Void Quartz Axe",
+  "item.iamod.void_quartz_shovel": "Void Quartz Shovel",
+  "item.iamod.void_quartz_sword": "Void Quartz Sword",
+  "item.iamod.void_quartz_hoe": "Void Quartz Hoe",
+
+  "item.iamod.void_quartz_helmet": "Void Quartz Helmet",
+  "item.iamod.void_quartz_chestplate": "Void Quartz Chestplate",
+  "item.iamod.void_quartz_chestplate_wings": "Winged Void Quartz Chestplate",
+  "item.iamod.void_quartz_leggings": "Void Quartz Leggings",
+  "item.iamod.void_quartz_boots": "Void Quartz Boots",
+
+
+  "item.iamod.sheep_milk_bucket": "Sheep Milk Bucket",
+  "item.iamod.goat_milk_bucket": "Goat Milk Bucket",
+
+  "block.iamod.infusion_table": "Infusion Table",
+
+  "biome.iamod.end_forest": "End Forest"
+}

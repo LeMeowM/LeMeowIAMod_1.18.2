@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "id": "aimod",
+  "id": "iamod",
   "version": "${version}",
 
   "name": "Better AI Mod",
@@ -14,19 +14,19 @@
   },
 
   "license": "MIT",
-  "icon": "assets/aimod/icon.png",
+  "icon": "assets/iamod/icon.png",
 
   "environment": "*",
   "entrypoints": {
     "client": [
-      "net.lemeow.aimod.AIModClientMod"
+      "net.lemeow.iamod.IAModClientMod"
     ],
     "main": [
-      "net.lemeow.aimod.AIMod"
+      "net.lemeow.iamod.IAMod"
     ]
   },
   "mixins": [
-    "aimod.mixins.json"
+    "iamod.mixins.json"
   ],
 
   "depends": {

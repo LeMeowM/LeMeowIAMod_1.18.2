@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "II",
+    "II"
+  ],
+  "key": {
+    "I": {
+      "item": "iamod:void_quartz_shard"
+    }
+  },
+  "result": {
+    "item": "iamod:void_quartz_block",
+    "count": 1
+  }
+}

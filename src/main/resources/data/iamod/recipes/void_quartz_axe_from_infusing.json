@@ -1,0 +1,12 @@
+{
+  "type": "iamod:infusion_table",
+  "input": {
+    "item": "minecraft:netherite_axe"
+  },
+  "fuel": {
+    "item": "iamod:void_quartz_ingot"
+  },
+  "output": {
+    "item": "iamod:void_quartz_axe"
+  }
+}

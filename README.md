@@ -1,6 +1,6 @@
-# BetterAIMod_1.18.2
+# LeMeowIAMod_1.18.2
 
-![Welcome!](src/main/resources/assets/aimod/icon.PNG)
+![Welcome!](src/main/resources/assets/iamod/icon.PNG)
 
 
 
@@ -24,40 +24,40 @@ void quartz as a new endgame material, more passive mobs, as well as maybe a new
 
 <details><summary><h2>List of Items Added (and their tags):</h2></summary>
 
-| Item Name                     |                Item ID                |           Why is it not working?            |
-|:------------------------------|:-------------------------------------:|:-------------------------------------------:|
-| Copper Axe                    |          `aimod.copper_axe`           |                                             |
-| Copper Boots                  |         `aimod.copper_boots`          |                                             |
-| Copper Chestplate             |       `aimod.copper_chestplate`       |                                             |
-| Copper Helmet                 |         `aimod.copper_helmet`         |                                             | 
-| Copper Hoe                    |          `aimod.copper_hoe`           |                                             |
-| Copper Horse Armor            |      `aimod.copper_horse_armor`       |                                             |
-| Copper Leggings               |        `aimod.copper_leggings`        |                                             |
-| Copper Nugget                 |         `aimod.copper_nugget`         |                                             |
-| Copper Pickaxe                |        `aimod.copper_pickaxe`         |                                             |
-| Copper Shovel                 |         `aimod.copper_shovel`         |                                             |
-| Copper Sword                  |         `aimod.copper_sword`          |                                             |
-| Void Quartz Block             |       `aimod.void_quartz_block`       |            Behavior needs fixing            |
-| Void Quartz Ingot             |       `aimod.void_quartz_ingot`       |                                             |
-| Void Quartz Ore               |        `aimod.void_quartz_ore`        |         Behavior needs fine tuning          |
-| Void Quartz Shard             |       `aimod.void_quartz_shard`       |                                             |
-| Void Quartz Axe               |        `aimod.void_quartz_axe`        |                                             |
-| Void Quartz Boots             |       `aimod.void_quartz_boots`       |                                             |
-| Void Quartz Chestplate        |    `aimod.void_quartz_chestplate`     |                                             |
-| Winged Void Quartz Chestplate | `aimod.void_quartz_chestplate_winged` | Behavior Not Implemented & Missing Textures |
-| Void Quartz Helmet            |      `aimod.void_quartz_helmet`       |                                             |
-| Void Quartz Hoe               |        `aimod.void_quartz_hoe`        |                                             |
-| Void Quartz Leggings          |     `aimod.void_quartz_leggings`      |               missing texture               |
-| Void Quartz Pickaxe           |      `aimod.void_quartz_pickaxe`      |                                             |
-| Void Quartz Shovel            |      `aimod.void_quartz_shovel`       |                                             |
-| Void Quartz Sword             |       `aimod.void_quartz_sword`       |                                             |
-| Infusion Table                |        `aimod.infusion_table`         | Missing Textures, Missing Texture Behavior  |
-| Goat Cheese                   |          `aimod.goat_cheese`          |        missing texture and behavior         |
-| Sheep Cheese                  |         `aimod.sheep_cheese`          |        missing texture and behavior         |
-| Goat Milk Bucket              |       `aimod.goat_milk_bucket`        |       wrong texture, missing behavior       |
-| Sheep Milk Bucket             |       `aimod.sheep_milk_bucket`       |       wrong texture, missing behavior       |
-|                               |                                       |                                             |
-|                               |                                       |                                             |
+| Item Name                     |                Item ID                |           Why is it not working?           |
+|:------------------------------|:-------------------------------------:|:------------------------------------------:|
+| Copper Axe                    |          `iamod.copper_axe`           |                                            |
+| Copper Boots                  |         `iamod.copper_boots`          |                                            |
+| Copper Chestplate             |       `iamod.copper_chestplate`       |                                            |
+| Copper Helmet                 |         `iamod.copper_helmet`         |                                            | 
+| Copper Hoe                    |          `iamod.copper_hoe`           |                                            |
+| Copper Horse Armor            |      `iamod.copper_horse_armor`       |                                            |
+| Copper Leggings               |        `iamod.copper_leggings`        |                                            |
+| Copper Nugget                 |         `iamod.copper_nugget`         |                                            |
+| Copper Pickaxe                |        `iamod.copper_pickaxe`         |                                            |
+| Copper Shovel                 |         `iamod.copper_shovel`         |                                            |
+| Copper Sword                  |         `iamod.copper_sword`          |                                            |
+| Void Quartz Block             |       `iamod.void_quartz_block`       |           Behavior needs fixing            |
+| Void Quartz Ingot             |       `iamod.void_quartz_ingot`       |                                            |
+| Void Quartz Ore               |        `iamod.void_quartz_ore`        |         Behavior needs fine tuning         |
+| Void Quartz Shard             |       `iamod.void_quartz_shard`       |                                            |
+| Void Quartz Axe               |        `iamod.void_quartz_axe`        |                                            |
+| Void Quartz Boots             |       `iamod.void_quartz_boots`       |                                            |
+| Void Quartz Chestplate        |    `iamod.void_quartz_chestplate`     |                                            |
+| Winged Void Quartz Chestplate | `iamod.void_quartz_chestplate_winged` |        Missing Textures & Renderer         |
+| Void Quartz Helmet            |      `iamod.void_quartz_helmet`       |                                            |
+| Void Quartz Hoe               |        `iamod.void_quartz_hoe`        |                                            |
+| Void Quartz Leggings          |     `iamod.void_quartz_leggings`      |                                            |
+| Void Quartz Pickaxe           |      `iamod.void_quartz_pickaxe`      |                                            |
+| Void Quartz Shovel            |      `iamod.void_quartz_shovel`       |                                            |
+| Void Quartz Sword             |       `iamod.void_quartz_sword`       |                                            |
+| Infusion Table                |        `iamod.infusion_table`         | Missing Textures, Missing Texture Behavior |
+| Goat Cheese                   |          `iamod.goat_cheese`          |        missing texture and behavior        |
+| Sheep Cheese                  |         `iamod.sheep_cheese`          |        missing texture and behavior        |
+| Goat Milk Bucket              |       `iamod.goat_milk_bucket`        |      wrong texture, missing behavior       |
+| Sheep Milk Bucket             |       `iamod.sheep_milk_bucket`       |      wrong texture, missing behavior       |
+|                               |                                       |                                            |
+|                               |                                       |                                            |
 
 
 

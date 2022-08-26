@@ -1,0 +1,16 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "net.lemeow.iamod.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "mixins": [
+    "MixinGoatEntity",
+    "LightningMixin",
+    "MixinSheepEntity"
+  ],
+  "client": [
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
