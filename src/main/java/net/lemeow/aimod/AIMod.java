@@ -1,6 +1,7 @@
 package net.lemeow.aimod;
 
 import net.fabricmc.api.ModInitializer;
+import net.fabricmc.fabric.api.client.rendering.v1.LivingEntityFeatureRendererRegistrationCallback;
 import net.lemeow.aimod.block.ModBlocks;
 import net.lemeow.aimod.block.entity.ModBlockEntities;
 import net.lemeow.aimod.item.ModFoodComponents;
@@ -12,6 +13,8 @@ import net.lemeow.aimod.util.ModRegistries;
 import net.lemeow.aimod.world.gen.ModOreGeneration;
 import net.lemeow.aimod.world.gen.ModWorldGen;
 import net.lemeow.aimod.world.generator.EndGeneratorOptions;
+import net.minecraft.client.render.entity.feature.ElytraFeatureRenderer;
+import net.minecraft.client.render.entity.model.PlayerEntityModel;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
