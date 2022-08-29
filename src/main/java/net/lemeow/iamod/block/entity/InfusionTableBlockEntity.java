@@ -38,9 +38,14 @@ public class InfusionTableBlockEntity extends BlockEntity implements NamedScreen
     private int progress = 0;
     private int maxProgress = 60;
 
+    /**
+     * Sets the slot of the inventory with the ItemStack
+     * @param slot the slot
+     * @param itemStack the stack
+     */
     @Override
-    public void setStack(int i, ItemStack itemStack){
-        this.inventory.setStack(i, itemStack);
+    public void setStack(int slot, ItemStack itemStack){
+        this.inventory.setStack(slot, itemStack);
     }
 
     /**
@@ -91,11 +96,22 @@ public class InfusionTableBlockEntity extends BlockEntity implements NamedScreen
         return itemStacks;
     }
 
+    /**
+     * Functional literal text instead of a translatable text for the display of the item, should probably be refactored
+     * to use translatable text.
+     * @return "Infusion Table" in a manner that can't be translated
+     */
     @Override
     public Text getDisplayName() {
         return new LiteralText("Infusion Table");
     }
 
+    /**
+     * Creates a New {@link  InfusionTableScreenHandler} for GUI use
+     * @param syncId ID for the GUI so that they are indexable
+     * @param inv The player's inventory
+     * @param player The player opening the GUI
+     */
     @Nullable
     @Override
     public ScreenHandler createMenu(int syncId, PlayerInventory inv, PlayerEntity player) {
