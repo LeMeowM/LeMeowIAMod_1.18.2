@@ -97,6 +97,23 @@ public class InfusionTableBlockEntity extends BlockEntity implements NamedScreen
     }
 
     /**
+     * A way to get FUEL but not the rest from the inventory inside the BlockEntity, why does SimpleInventory not have a getItems() itself???
+     * who knows
+     * @return The fuel inside the block entity, NOT the SimpleInventory but a usable list.
+     */
+    public DefaultedList<ItemStack> getFuel() {
+        DefaultedList<ItemStack> itemStacks = DefaultedList.ofSize(inventory.size(), ItemStack.EMPTY);
+
+        for(int i = 0; i< inventory.size()-1;i++){
+            itemStacks.set(i, inventory.getStack(i));
+        }
+
+        return itemStacks;
+    }
+
+
+
+    /**
      * Functional literal text instead of a translatable text for the display of the item, should probably be refactored
      * to use translatable text.
      * @return "Infusion Table" in a manner that can't be translated
