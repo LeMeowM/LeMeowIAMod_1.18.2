@@ -6,7 +6,8 @@
   "mixins": [
     "MixinGoatEntity",
     "LightningMixin",
-    "MixinSheepEntity"
+    "MixinSheepEntity",
+    "PlatedElytraRendererMixin"
   ],
   "client": [
   ],
