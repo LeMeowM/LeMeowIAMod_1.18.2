@@ -98,16 +98,16 @@ void quartz as a new endgame material, more passive mobs, as well as maybe a new
   - [X] ingots
   - [X] blocks
   - [X] infusion table -> works with comparators
-  - [ ] tools
-    - [ ] axe
-    - [ ] hoe
-    - [ ] pickaxe
-    - [ ] shovel
-    - [ ] sword
-  - [ ] armor
+  - [x] tools
+    - [X] axe
+    - [X] hoe
+    - [X] pickaxe
+    - [X] shovel
+    - [X] sword
+  - [X] armor
     - [X] helmet
     - [X] chestplate 
-    - [ ] (elytra?)
+    - [X] (elytra?)
     - [X] leggings
     - [X] boots
 - [ ] maybe end biomes??
@@ -125,21 +125,21 @@ void quartz as a new endgame material, more passive mobs, as well as maybe a new
 - [ ] rats
   - [ ] animation
   - [ ] models
-- [ ] void quartz
-  - [ ] ores
+- [X] void quartz
+  - [X] ores
   - [X] shards
-  - [ ] ingots
+  - [X] ingots
   - [X] blocks
-  - [ ] crafting bench
+  - [X] crafting bench
   - [X] tools
     - [X] axe
     - [X] hoe
     - [X] pickaxe
     - [X] shovel
     - [X] sword
-  - [ ] armor
+  - [X] armor
     - [X] helmet
-    - [ ] chestplate (elytra?)
+    - [X] chestplate (elytra?)
     - [X] leggings
     - [X] boots
 

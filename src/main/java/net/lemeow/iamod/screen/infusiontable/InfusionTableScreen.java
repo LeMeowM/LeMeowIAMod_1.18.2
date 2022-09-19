@@ -1,4 +1,4 @@
-package net.lemeow.iamod.screen;
+package net.lemeow.iamod.screen.infusiontable;
 
 import com.mojang.blaze3d.systems.RenderSystem;
 import net.lemeow.iamod.IAMod;

@@ -4,7 +4,7 @@ package net.lemeow.iamod.block.entity;
 
 import net.lemeow.iamod.item.inventory.ImplementedInventory;
 import net.lemeow.iamod.recipe.InfusionTableRecipe;
-import net.lemeow.iamod.screen.InfusionTableScreenHandler;
+import net.lemeow.iamod.screen.infusiontable.InfusionTableScreenHandler;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
@@ -138,16 +138,18 @@ public class InfusionTableBlockEntity extends BlockEntity implements NamedScreen
     @Override
     protected void writeNbt(NbtCompound nbt) {
         super.writeNbt(nbt);
-        Inventories.writeNbt(nbt, getItems());
+        Inventories.writeNbt(nbt, this.getItems());
         nbt.putInt("infusion.progress", progress);
-
-
     }
 
     @Override
     public void readNbt(NbtCompound nbt) {
-        Inventories.readNbt(nbt, getItems());
         super.readNbt(nbt);
+        DefaultedList<ItemStack> inv = DefaultedList.ofSize(5, ItemStack.EMPTY);
+        Inventories.readNbt(nbt, inv);
+        for(int i=0; i<inv.size();i++){
+            this.setStack(i, inv.get(i));
+        }
         progress = nbt.getInt("infusion.progress");
 
     }

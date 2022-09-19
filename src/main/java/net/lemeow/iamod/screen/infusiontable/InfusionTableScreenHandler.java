@@ -1,7 +1,8 @@
-package net.lemeow.iamod.screen;
+package net.lemeow.iamod.screen.infusiontable;
 
 
 
+import net.lemeow.iamod.screen.ModScreenHandlers;
 import net.lemeow.iamod.screen.slot.ModResultSlot;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;

@@ -4,6 +4,7 @@ package net.lemeow.iamod.screen;
 import net.fabricmc.fabric.api.screenhandler.v1.ScreenHandlerRegistry;
 import net.lemeow.iamod.IAMod;
 
+import net.lemeow.iamod.screen.infusiontable.InfusionTableScreenHandler;
 import net.minecraft.screen.ScreenHandlerType;
 import net.minecraft.util.Identifier;
 

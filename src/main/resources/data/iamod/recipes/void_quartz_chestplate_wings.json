@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredient": [{
+    "item": "iamod:void_quartz_chestplate"
+  },
+  {
+    "item": "minecraft:elytra"
+  }],
+  "result": {
+    "item": "iamod:void_quartz_chestplate_wings"
+  }
+}

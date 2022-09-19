@@ -3,6 +3,7 @@ package net.lemeow.iamod.block;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.lemeow.iamod.IAMod;
+import net.lemeow.iamod.block.custom.MassCraftingTable;
 import net.lemeow.iamod.block.custom.cheesemold.AbstractCheeseMoldBlock;
 import net.lemeow.iamod.block.custom.InfusionTableBlock;
 import net.minecraft.block.Block;
@@ -37,6 +38,11 @@ public class ModBlocks {
     public static final Block INFUSION_TABLE = registerVoidBlock("infusion_table",
             new InfusionTableBlock(FabricBlockSettings.of(Material.STONE).strength(50f,1200f).requiresTool()),
             ItemGroup.BUILDING_BLOCKS);
+
+    public static final Block MASS_CRAFTING_TABLE = registerBlock("mass_crafting_table",
+            new MassCraftingTable(FabricBlockSettings.of(Material.METAL).strength(.5f)),
+            ItemGroup.MISC
+            );
 
     // Foods
 
