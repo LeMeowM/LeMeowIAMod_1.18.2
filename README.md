@@ -70,6 +70,9 @@ void quartz as a new endgame material, more passive mobs, as well as maybe a new
 - MixinLightningEntity -> lightning creates glass in sand
 - MixinSheepEntity -> sheep can be milked
 - MixinGoatEntity -> goats can be milked
+- EmptyBottleMixin -> you can now use empty bottles as a temporary air storage to stay underwater for longer
+- PotionMixin -> you can no longer drink potions underwater
+- PlatedElytraRendererMixin -> adds elytra wings to players wearing plated elytras.
 
 ## MISSING CODE
 - [X] copper horse armor
