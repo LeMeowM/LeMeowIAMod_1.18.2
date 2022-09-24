@@ -71,58 +71,58 @@ public class ModItems {
     // Void Quartz Items
 
     public static final Item VOID_QUARTZ_SHARD = registerItem("void_quartz_shard",
-            new Item(new FabricItemSettings().group(ItemGroup.MISC).fireproof().rarity(Rarity.EPIC)));
+            new Item(new FabricItemSettings().group(ModItemGroup.VOID_QUARTZ).fireproof().rarity(Rarity.EPIC)));
 
     public static final Item VOID_QUARTZ_INGOT = registerItem("void_quartz_ingot",
-            new Item(new FabricItemSettings().group(ItemGroup.MISC).fireproof().rarity(Rarity.EPIC)));
+            new Item(new FabricItemSettings().group(ModItemGroup.VOID_QUARTZ).fireproof().rarity(Rarity.EPIC)));
 
 
     // Void Quartz Armor
 
     public static final Item VOID_QUARTZ_HELMET = registerItem("void_quartz_helmet",
             new ArmorItem(ModArmorMaterials.VOID_QUARTZ, EquipmentSlot.HEAD,
-                    new FabricItemSettings().group(ItemGroup.COMBAT).fireproof().rarity(Rarity.EPIC)));
+                    new FabricItemSettings().group(ModItemGroup.VOID_QUARTZ).fireproof().rarity(Rarity.EPIC)));
 
     public static final Item VOID_QUARTZ_CHESTPLATE = registerItem("void_quartz_chestplate",
             new ArmorItem(ModArmorMaterials.VOID_QUARTZ, EquipmentSlot.CHEST,
-                    new FabricItemSettings().group(ItemGroup.COMBAT).fireproof().rarity(Rarity.EPIC)));
+                    new FabricItemSettings().group(ModItemGroup.VOID_QUARTZ).fireproof().rarity(Rarity.EPIC)));
 
 
 
     public static final Item VOID_QUARTZ_CHESTPLATE_WINGS = registerItem("void_quartz_chestplate_wings",
             new PlatedElytra(ModArmorMaterials.VOID_QUARTZ, EquipmentSlot.CHEST,
-                    new FabricItemSettings().group(ItemGroup.TRANSPORTATION).fireproof().rarity(Rarity.EPIC)));
+                    new FabricItemSettings().group(ModItemGroup.VOID_QUARTZ).fireproof().rarity(Rarity.EPIC)));
 
     public static final Item VOID_QUARTZ_LEGGINGS = registerItem("void_quartz_leggings",
             new ArmorItem(ModArmorMaterials.VOID_QUARTZ, EquipmentSlot.LEGS,
-                    new FabricItemSettings().group(ItemGroup.COMBAT).fireproof().rarity(Rarity.EPIC)));
+                    new FabricItemSettings().group(ModItemGroup.VOID_QUARTZ).fireproof().rarity(Rarity.EPIC)));
 
     public static final Item VOID_QUARTZ_BOOTS = registerItem("void_quartz_boots",
             new ArmorItem(ModArmorMaterials.VOID_QUARTZ, EquipmentSlot.FEET,
-                    new FabricItemSettings().group(ItemGroup.COMBAT).fireproof().rarity(Rarity.EPIC)));
+                    new FabricItemSettings().group(ModItemGroup.VOID_QUARTZ).fireproof().rarity(Rarity.EPIC)));
 
 
     // Void Quartz Tools
 
     public static final Item VOID_QUARTZ_SHOVEL = registerItem("void_quartz_shovel",
             new ModCopperShovel(ModToolMaterials.VOID_QUARTZ, 2, -3.0F,
-                    new FabricItemSettings().group(ItemGroup.TOOLS).fireproof().rarity(Rarity.EPIC)));
+                    new FabricItemSettings().group(ModItemGroup.VOID_QUARTZ).fireproof().rarity(Rarity.EPIC)));
 
     public static final Item VOID_QUARTZ_PICKAXE = registerItem("void_quartz_pickaxe",
             new ModCopperPickaxe(ModToolMaterials.VOID_QUARTZ, 1, -2.8F,
-                    new FabricItemSettings().group(ItemGroup.TOOLS).fireproof().rarity(Rarity.EPIC)));
+                    new FabricItemSettings().group(ModItemGroup.VOID_QUARTZ).fireproof().rarity(Rarity.EPIC)));
 
     public static final Item VOID_QUARTZ_AXE = registerItem("void_quartz_axe",
             new ModCopperAxe(ModToolMaterials.VOID_QUARTZ, 7.5F, -3F,
-                    new FabricItemSettings().group(ItemGroup.TOOLS).fireproof().rarity(Rarity.EPIC)));
+                    new FabricItemSettings().group(ModItemGroup.VOID_QUARTZ).fireproof().rarity(Rarity.EPIC)));
 
     public static final Item VOID_QUARTZ_SWORD = registerItem("void_quartz_sword",
             new SwordItem(ModToolMaterials.VOID_QUARTZ, 4, -2.4F,
-                    new FabricItemSettings().group(ItemGroup.COMBAT).fireproof().rarity(Rarity.EPIC)));
+                    new FabricItemSettings().group(ModItemGroup.VOID_QUARTZ).fireproof().rarity(Rarity.EPIC)));
 
     public static final Item VOID_QUARTZ_HOE = registerItem("void_quartz_hoe",
             new ModCopperHoe(ModToolMaterials.VOID_QUARTZ, -5, 0F,
-                    new FabricItemSettings().group(ItemGroup.TOOLS).fireproof().rarity(Rarity.EPIC)));
+                    new FabricItemSettings().group(ModItemGroup.VOID_QUARTZ).fireproof().rarity(Rarity.EPIC)));
 
     // foods
 

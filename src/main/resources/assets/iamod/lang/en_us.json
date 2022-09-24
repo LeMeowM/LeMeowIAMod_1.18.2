@@ -39,5 +39,7 @@
 
   "block.iamod.infusion_table": "Infusion Table",
 
-  "biome.iamod.end_forest": "End Forest"
+  "biome.iamod.end_forest": "End Forest",
+
+  "itemGroup.iamod.void_quartz": "Void Quartz Tab"
 }
