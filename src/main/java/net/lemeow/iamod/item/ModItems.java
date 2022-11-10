@@ -124,6 +124,13 @@ public class ModItems {
             new ModCopperHoe(ModToolMaterials.VOID_QUARTZ, -5, 0F,
                     new FabricItemSettings().group(ModItemGroup.VOID_QUARTZ).fireproof().rarity(Rarity.EPIC)));
 
+
+    // Knives
+
+    public static final Item IronKnife = registerItem("iron_knife",
+            new ModKnife(ToolMaterials.IRON, 1, 0F,
+                    new FabricItemSettings().group(ItemGroup.COMBAT)));
+
     // foods
 
     public static final Item COW_CHEESE = registerItem("cow_cheese", new Item(new FabricItemSettings()
