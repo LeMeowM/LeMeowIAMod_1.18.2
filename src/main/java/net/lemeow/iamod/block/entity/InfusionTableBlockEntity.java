@@ -26,8 +26,7 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.Optional;
 
-// THIS IS UTTERLY BROKEN OH DEAR GOD I NEED TO FIX THIS -> hasRecipe doesnt work for some reason,
-// it seems getFirstMatch() isnt working correctly
+// THIS NOW WORKS :D
 public class InfusionTableBlockEntity extends BlockEntity implements NamedScreenHandlerFactory, ImplementedInventory {
 
 

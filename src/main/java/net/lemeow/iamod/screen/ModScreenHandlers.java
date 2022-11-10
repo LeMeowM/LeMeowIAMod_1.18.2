@@ -10,11 +10,17 @@ import net.minecraft.util.Identifier;
 
 public class ModScreenHandlers {
     public static ScreenHandlerType<InfusionTableScreenHandler> INFUSION_TABLE_SCREEN_HANDLER;
+    public static ScreenHandlerType<MassCraftingScreenHandler> MASS_CRAFTING_TABLE_HANDLER;
 
     public static void registerAllScreenHandlers(){
         INFUSION_TABLE_SCREEN_HANDLER =
                 ScreenHandlerRegistry.registerSimple(new Identifier(IAMod.MOD_ID, "infusion_table"),
                         InfusionTableScreenHandler::new);
+
+        MASS_CRAFTING_TABLE_HANDLER =
+                ScreenHandlerRegistry.registerSimple(new Identifier(IAMod.MOD_ID, "mass_crafting_table"),
+                        MassCraftingScreenHandler::new);
+
     }
 
 }
