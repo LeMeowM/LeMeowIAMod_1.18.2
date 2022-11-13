@@ -31,15 +31,28 @@ public interface CheeseMoldBehavior {
     Map<Item, CheeseMoldBehavior> COW_CHEESE_MOLD = createMap();
     Map<Item, CheeseMoldBehavior> SHEEP_CHEESE_MOLD = createMap();
     Map<Item, CheeseMoldBehavior> GOAT_CHEESE_MOLD = createMap();
-    // create blocks for milk molds??
-    CheeseMoldBehavior ADD_COW_MILK = (BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, ItemStack stack) ->{
-        return fillMold( world, pos, player, hand, stack, ModBlocks.COW_CHEESE_MOLD_BLOCK.getDefaultState().with(LeveledCheeseMoldBlock.LEVEL, 1), SoundEvents.ITEM_BUCKET_EMPTY);
+
+
+    // THE FUNCTIONAL METHOD, so the lambdas work
+    ActionResult interact(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, ItemStack stack);
+
+
+    // create all possible behaviors for the cheese mold, after one of these is selected, the mold takes the Blockstate
+    // as specified
+    CheeseMoldBehavior ADD_COW_MILK = (BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand,
+                                       ItemStack stack) ->{
+        return fillMold( world, pos, player, hand, stack, ModBlocks.COW_CHEESE_MOLD_BLOCK.getDefaultState()
+                .with(LeveledCheeseMoldBlock.LEVEL, 1), SoundEvents.ITEM_BUCKET_EMPTY);
     };
-    CheeseMoldBehavior ADD_GOAT_MILK = (BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, ItemStack stack) ->{
-        return fillMold( world, pos, player, hand, stack, ModBlocks.GOAT_CHEESE_MOLD_BLOCK.getDefaultState().with(LeveledCheeseMoldBlock.LEVEL, 1), SoundEvents.ITEM_BUCKET_EMPTY);
+    CheeseMoldBehavior ADD_GOAT_MILK = (BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand,
+                                        ItemStack stack) ->{
+        return fillMold( world, pos, player, hand, stack, ModBlocks.GOAT_CHEESE_MOLD_BLOCK.getDefaultState()
+                .with(LeveledCheeseMoldBlock.LEVEL, 1), SoundEvents.ITEM_BUCKET_EMPTY);
     };
-    CheeseMoldBehavior ADD_SHEEP_MILK = (BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, ItemStack stack) ->{
-        return fillMold( world, pos, player, hand, stack, ModBlocks.SHEEP_CHEESE_MOLD_BLOCK.getDefaultState().with(LeveledCheeseMoldBlock.LEVEL, 1), SoundEvents.ITEM_BUCKET_EMPTY);
+    CheeseMoldBehavior ADD_SHEEP_MILK = (BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand,
+                                         ItemStack stack) ->{
+        return fillMold( world, pos, player, hand, stack, ModBlocks.SHEEP_CHEESE_MOLD_BLOCK.getDefaultState()
+                .with(LeveledCheeseMoldBlock.LEVEL, 1), SoundEvents.ITEM_BUCKET_EMPTY);
     };
     CheeseMoldBehavior DROP_CHEESE = CheeseMoldBehavior::dropCheese;
 
@@ -77,7 +90,8 @@ public interface CheeseMoldBehavior {
     }
 
 
-    static ActionResult dropCheese(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, ItemStack stack){
+    static ActionResult dropCheese(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand,
+                                   ItemStack stack){
         Block block = world.getBlockState(pos).getBlock();
         emptyMold(state, world, pos, player, hand, stack, new ItemStack(Items.AIR), (BlockState blockState) -> {
             return (Integer)blockState.get(LeveledCheeseMoldBlock.LEVEL)==AbstractCheeseMoldBlock.MAX_LEVEL;
@@ -90,13 +104,9 @@ public interface CheeseMoldBehavior {
     }
 
 
-    // literally the centre of this entire thing, so the lambdas work -> the functional method
-    ActionResult interact(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, ItemStack stack);
-
-
-
-
-    static ActionResult emptyMold(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, ItemStack stack, ItemStack output, Predicate<BlockState> predicate, SoundEvent soundEvent) {
+    static ActionResult emptyMold(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand,
+                                  ItemStack stack, ItemStack output, Predicate<BlockState> predicate,
+                                  SoundEvent soundEvent) {
         if(!predicate.test(state)){
             return ActionResult.PASS;
         }
@@ -104,7 +114,7 @@ public interface CheeseMoldBehavior {
             if (!world.isClient){
                 Item item = stack.getItem();
                 player.setStackInHand(hand, ItemUsage.exchangeStack(stack, player, output));
-                // add stats
+                // Need to add custom stats later.
 
 
                 world.setBlockState(pos, ModBlocks.EMPTY_CHEESE_MOLD_BLOCK.getDefaultState());
@@ -115,11 +125,12 @@ public interface CheeseMoldBehavior {
         }
     }
 
-    static ActionResult fillMold(World world, BlockPos pos, PlayerEntity player, Hand hand, ItemStack stack, BlockState state, SoundEvent sound){
+    static ActionResult fillMold(World world, BlockPos pos, PlayerEntity player, Hand hand, ItemStack stack,
+                                 BlockState state, SoundEvent sound){
         if(!world.isClient){
             Item item = stack.getItem();
             player.setStackInHand(hand, ItemUsage.exchangeStack(stack, player, new ItemStack(Items.BUCKET)));
-            // maybe add custom stat??
+            // add custom stats later
 
             world.setBlockState(pos, state);
             world.playSound((PlayerEntity)null, pos, sound, SoundCategory.BLOCKS, 1.0F, 0.5F);
