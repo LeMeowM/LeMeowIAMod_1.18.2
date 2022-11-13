@@ -28,11 +28,18 @@ import java.util.stream.Stream;
 
 
 public class InfusionTableBlock extends BlockWithEntity implements BlockEntityProvider {
+
     /**
      * Direction this block is facing,
      * HORIZONTAL_FACING makes sure that the block does not go upside down and only turns around
      */
     public static final DirectionProperty FACING = Properties.HORIZONTAL_FACING;
+
+    /**
+     * Block's hitbox, named SHAPE_N because it's supposed to be rotated but the block has a rotational
+     * symmetry of order 4, so it doesn't matter whatsoever.
+     * @Author BlockBench <33
+     */
     private static final VoxelShape SHAPE_N = Stream.of(
             Block.createCuboidShape(6, 10, 0, 10, 13, 4),
             Block.createCuboidShape(1, 0, 1, 15, 2, 15),
@@ -46,7 +53,10 @@ public class InfusionTableBlock extends BlockWithEntity implements BlockEntityPr
             Block.createCuboidShape(6, 10, 12, 10, 13, 16)
     ).reduce((v1, v2) -> VoxelShapes.combineAndSimplify(v1, v2, BooleanBiFunction.OR)).get();
 
-
+    /**
+     * Constructor
+     * @param settings block's settings for {@link BlockWithEntity}
+     */
     public InfusionTableBlock(Settings settings) {
         super(settings);
     }
@@ -59,7 +69,7 @@ public class InfusionTableBlock extends BlockWithEntity implements BlockEntityPr
     /**
      * Usual Method to know how to place the block given which block was clicked to place it.
      * This one places it facing the opposite direction to the face of the block that the player is facing towards
-     * @param ctx An ItemPlacementContext, telling us which block its placed against and if it can replace any blocks
+     * @param ctx An {@link ItemPlacementContext}, telling us which block its placed against and if it can replace any blocks
      * @return Default block facing the opposite direction the player is facing
      */
     @Nullable
@@ -102,7 +112,6 @@ public class InfusionTableBlock extends BlockWithEntity implements BlockEntityPr
         builder.add(FACING);
     }
 
-    // Block Entity
 
 
     /**
@@ -119,7 +128,7 @@ public class InfusionTableBlock extends BlockWithEntity implements BlockEntityPr
     /**
      * Creates an InfusionTableBlockEntity to be used at the pos and state of the block.
      * @param pos Position to place the new BlockEntity
-     * @param state The BlockState & texture that this block entity should have
+     * @param state The BlockState (read: texture) that this block entity should have
      * @return A new InfusionTableBlockEntity placed at pos with BlockState state
      */
     @Nullable

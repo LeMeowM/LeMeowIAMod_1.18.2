@@ -26,15 +26,32 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.Optional;
 
+// it seems that only read NBT doesnt work
 // THIS NOW WORKS :D
 public class InfusionTableBlockEntity extends BlockEntity implements NamedScreenHandlerFactory, ImplementedInventory {
 
 
+    /**
+     * i should probably change this to a defaulted list of itemstacks but this is how i built it, changing it
+     * is a pain in the ass.
+     * i do not like the hardcoding of the size but i guess it has to be like that somewhat...
+     */
     private final SimpleInventory inventory =
             new SimpleInventory(5);
 
+    /**
+     * this is the properties that are being cached and changed in the block like fuel progress and the maximum progress
+     */
     protected final PropertyDelegate propertyDelegate;
+
+    /**
+     * should probably make this more specific and maybe add a way to
+     * cache the item being infused so you can't hotswap them
+     */
     private int progress = 0;
+    /**
+     * in ticks, this seems absurdly short...
+     */
     private int maxProgress = 60;
 
     /**
@@ -48,7 +65,8 @@ public class InfusionTableBlockEntity extends BlockEntity implements NamedScreen
     }
 
     /**
-     * Constructor, used to place new blocks of this type in the world
+     * Constructor, used to place new blocks of this type in the world,
+     * if I add a new property, I need to add to the get and set in here.
      * @param pos Position where this block entity is placed
      * @param state The BlockState of the block placed, usually meant for blocks with multiple states, not this one
      */
