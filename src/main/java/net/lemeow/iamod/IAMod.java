@@ -2,6 +2,7 @@ package net.lemeow.iamod;
 
 import net.fabricmc.api.ModInitializer;
 import net.lemeow.iamod.block.ModBlocks;
+import net.lemeow.iamod.block.custom.cheesemold.CheeseMoldBehavior;
 import net.lemeow.iamod.block.entity.ModBlockEntities;
 import net.lemeow.iamod.item.ModFoodComponents;
 import net.lemeow.iamod.item.ModItems;
@@ -40,6 +41,7 @@ public class IAMod implements ModInitializer {
 		ModOreGeneration.registerConfiguredFeatures();
 
 		ModBlockEntities.registerAllBlockEntities();
+		CheeseMoldBehavior.registerBehavior();
 
 
 		ModWorldGen.generateModWorldGen();

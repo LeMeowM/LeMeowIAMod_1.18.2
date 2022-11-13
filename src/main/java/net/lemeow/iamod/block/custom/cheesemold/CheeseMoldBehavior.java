@@ -57,9 +57,6 @@ public interface CheeseMoldBehavior {
     CheeseMoldBehavior DROP_CHEESE = CheeseMoldBehavior::dropCheese;
 
 
-
-
-
     static Object2ObjectOpenHashMap<Item, CheeseMoldBehavior> createMap(){
         return Util.make(new Object2ObjectOpenHashMap(), AbstractObject2ObjectFunction::defaultReturnValue);
     }
@@ -71,21 +68,20 @@ public interface CheeseMoldBehavior {
         behavior.put(ModItems.GOAT_MILK_BUCKET, ADD_GOAT_MILK);
     }
 
+
     static void registerBehavior(){
         // adds cow, sheep and goat milk adding behavior to an empty cheese mold
         registerBucketBehavior(EMPTY_CHEESE_MOLD);
 
+        // DO NOT make this into a loop
+        // some inline issue caused a race condition between this and another part of the code making the behaviour
+        // registry not work for god knows what reason.
+        // I think it's a gradle problem.
+        COW_CHEESE_MOLD.put(Items.MILK_BUCKET, ADD_COW_MILK);
 
-        //
-        registerBucketBehavior(COW_CHEESE_MOLD);
-        COW_CHEESE_MOLD.put(Items.MILK_BUCKET, (state, world, pos, player,
-                                                hand, stack )-> {
-            return emptyMold(state, world, pos, player, hand, stack, new ItemStack(Items.BUCKET), (BlockState statex) ->{
-                return (Integer)statex.get(LeveledCheeseMoldBlock.LEVEL)==AbstractCheeseMoldBlock.MAX_LEVEL;
-                }, SoundEvents.ENTITY_COW_MILK);
-        });
+        GOAT_CHEESE_MOLD.put(Items.MILK_BUCKET, ADD_GOAT_MILK);
 
-
+        SHEEP_CHEESE_MOLD.put(Items.MILK_BUCKET, ADD_SHEEP_MILK);
 
     }
 
