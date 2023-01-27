@@ -1,0 +1,6 @@
+{
+  "parent": "iamod:item/iron_bow",
+  "textures": {
+    "layer0": "iamod:item/iron_bow_pulling_2"
+  }
+}

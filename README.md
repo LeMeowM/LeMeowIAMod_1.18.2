@@ -56,6 +56,15 @@ void quartz as a new endgame material, more passive mobs, as well as maybe a new
 | Sheep Cheese                  |         `iamod.sheep_cheese`          |  missing texture and behavior   |
 | Goat Milk Bucket              |       `iamod.goat_milk_bucket`        | wrong texture, missing behavior |
 | Sheep Milk Bucket             |       `iamod.sheep_milk_bucket`       | wrong texture, missing behavior |
+| Wood Dagger                   |          `iamod.wood_dagger`          | missing texture, wrong behavior |
+| Stone Dagger                  |         `iamod.stone_dagger`          | missing texture, wrong behavior |
+| Copper Dagger                 |         `iamod.copper_dagger`         | missing texture, wrong behavior |
+| Iron Dagger                   |          `iamod.iron_dagger`          | missing texture, wrong behavior |
+| Gold Dagger                   |          `iamod.gold_dagger`          | missing texture, wrong behavior |
+| Diamond Dagger                |        `iamod.diamond_dagger`         | missing texture, wrong behavior |
+| Netherite Dagger              |       `iamod.netherite_dagger`        | missing texture, wrong behavior |
+| Void Quartz Dagger            |      `iamod.void_quartz_dagger`       | missing texture, wrong behavior |
+|                               |                                       |                                 |
 |                               |                                       |                                 |
 |                               |                                       |                                 |
 

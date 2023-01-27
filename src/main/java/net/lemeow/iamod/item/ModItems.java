@@ -126,35 +126,35 @@ public class ModItems {
 
     // Knives
 
-    public static final Item WOOD_KNIFE = registerItem("wood_knife",
+    public static final Item WOOD_DAGGER = registerItem("wood_dagger",
             new ModKnife(ToolMaterials.STONE, 1, 0F,
                     new FabricItemSettings().group(ItemGroup.COMBAT)));
 
-    public static final Item STONE_KNIFE = registerItem("stone_knife",
+    public static final Item STONE_DAGGER = registerItem("stone_dagger",
             new ModKnife(ToolMaterials.STONE, 1, 0F,
                     new FabricItemSettings().group(ItemGroup.COMBAT)));
 
-    public static final Item COPPER_KNIFE = registerItem("copper_knife",
+    public static final Item COPPER_DAGGER = registerItem("copper_dagger",
             new ModKnife(ModToolMaterials.COPPER, 1, 0F,
                     new FabricItemSettings().group(ItemGroup.COMBAT)));
 
-    public static final Item IRON_KNIFE = registerItem("iron_knife",
+    public static final Item IRON_DAGGER = registerItem("iron_dagger",
             new ModKnife(ToolMaterials.IRON, 1, 0F,
                     new FabricItemSettings().group(ItemGroup.COMBAT)));
 
-    public static final Item GOLD_KNIFE = registerItem("gold_knife",
+    public static final Item GOLD_DAGGER = registerItem("gold_dagger",
             new ModKnife(ToolMaterials.GOLD, 1, 0F,
                     new FabricItemSettings().group(ItemGroup.COMBAT)));
 
-    public static final Item DIAMOND_KNIFE = registerItem("diamond_knife",
+    public static final Item DIAMOND_DAGGER = registerItem("diamond_dagger",
             new ModKnife(ToolMaterials.DIAMOND, 1, 0F,
                     new FabricItemSettings().group(ItemGroup.COMBAT)));
 
-    public static final Item NETHERITE_KNIFE = registerItem("netherite_knife",
+    public static final Item NETHERITE_DAGGER = registerItem("netherite_dagger",
             new ModKnife(ToolMaterials.NETHERITE, 1, 0F,
                     new FabricItemSettings().group(ItemGroup.COMBAT)));
 
-    public static final Item VOID_QUARTZ_KNIFE = registerItem("void_quartz_knife",
+    public static final Item VOID_QUARTZ_DAGGER = registerItem("void_quartz_dagger",
             new ModKnife(ModToolMaterials.VOID_QUARTZ, 1, 0F,
                     new FabricItemSettings().group(ItemGroup.COMBAT)));
 
@@ -164,7 +164,7 @@ public class ModItems {
 
     public static final Item IRON_BOW = registerItem("iron_bow",
             new ModBowItem(ToolMaterials.IRON, 2, 3,
-                    new FabricItemSettings().group(ItemGroup.COMBAT)));
+                    new FabricItemSettings().group(ItemGroup.COMBAT).maxDamage(640)));
 
 
 

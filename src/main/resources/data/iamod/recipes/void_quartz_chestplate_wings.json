@@ -1,6 +1,6 @@
 {
   "type": "minecraft:crafting_shapeless",
-  "ingredient": [{
+  "ingredients": [{
     "item": "iamod:void_quartz_chestplate"
   },
   {

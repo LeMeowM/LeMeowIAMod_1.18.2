@@ -5,6 +5,7 @@
   "item.iamod.copper_shovel": "Copper Shovel",
   "item.iamod.copper_sword": "Copper Sword",
   "item.iamod.copper_hoe": "Copper Hoe",
+  "item.iamod.copper_dagger": "Copper Dagger",
 
   "item.iamod.copper_helmet": "Copper Helmet",
   "item.iamod.copper_chestplate": "Copper Chestplate",
@@ -26,6 +27,7 @@
   "item.iamod.void_quartz_shovel": "Void Quartz Shovel",
   "item.iamod.void_quartz_sword": "Void Quartz Sword",
   "item.iamod.void_quartz_hoe": "Void Quartz Hoe",
+  "item.iamod.void_quartz_dagger": "Void Quartz Dagger",
 
   "item.iamod.void_quartz_helmet": "Void Quartz Helmet",
   "item.iamod.void_quartz_chestplate": "Void Quartz Chestplate",
@@ -36,6 +38,16 @@
 
   "item.iamod.sheep_milk_bucket": "Sheep Milk Bucket",
   "item.iamod.goat_milk_bucket": "Goat Milk Bucket",
+
+  "item.iamod.wood_dagger": "Wood Dagger",
+  "item.iamod.stone_dagger": "Stone Dagger",
+  "item.iamod.iron_dagger": "Iron Dagger",
+  "item.iamod.gold_dagger": "Gold Dagger",
+  "item.iamod.diamond_dagger": "Diamond Dagger",
+  "item.iamod.netherite_dagger": "Netherite Dagger",
+
+
+  "item.iamod.iron_bow": "Iron Bow",
 
   "block.iamod.infusion_table": "Infusion Table",
 
