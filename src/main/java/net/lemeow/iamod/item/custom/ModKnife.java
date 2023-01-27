@@ -22,7 +22,7 @@ public class ModKnife extends SwordItem {
         float dYaw = (Math.abs(target.bodyYaw-attacker.getYaw()));
         IAMod.LOGGER.warn(dYaw+"");
         if(dYaw<90||dYaw>270){
-            target.kill();
+            target.kill(); // CHANGE THIS TO DAMAGE SCALED ON TOOL MATERIAL
         }
 
         return true;

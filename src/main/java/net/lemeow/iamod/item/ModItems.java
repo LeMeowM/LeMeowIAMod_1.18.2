@@ -10,7 +10,6 @@ import net.minecraft.util.Rarity;
 import net.minecraft.util.registry.Registry;
 
 
-
 public class ModItems {
 
 
@@ -127,9 +126,47 @@ public class ModItems {
 
     // Knives
 
-    public static final Item IronKnife = registerItem("iron_knife",
+    public static final Item WOOD_KNIFE = registerItem("wood_knife",
+            new ModKnife(ToolMaterials.STONE, 1, 0F,
+                    new FabricItemSettings().group(ItemGroup.COMBAT)));
+
+    public static final Item STONE_KNIFE = registerItem("stone_knife",
+            new ModKnife(ToolMaterials.STONE, 1, 0F,
+                    new FabricItemSettings().group(ItemGroup.COMBAT)));
+
+    public static final Item COPPER_KNIFE = registerItem("copper_knife",
+            new ModKnife(ModToolMaterials.COPPER, 1, 0F,
+                    new FabricItemSettings().group(ItemGroup.COMBAT)));
+
+    public static final Item IRON_KNIFE = registerItem("iron_knife",
             new ModKnife(ToolMaterials.IRON, 1, 0F,
                     new FabricItemSettings().group(ItemGroup.COMBAT)));
+
+    public static final Item GOLD_KNIFE = registerItem("gold_knife",
+            new ModKnife(ToolMaterials.GOLD, 1, 0F,
+                    new FabricItemSettings().group(ItemGroup.COMBAT)));
+
+    public static final Item DIAMOND_KNIFE = registerItem("diamond_knife",
+            new ModKnife(ToolMaterials.DIAMOND, 1, 0F,
+                    new FabricItemSettings().group(ItemGroup.COMBAT)));
+
+    public static final Item NETHERITE_KNIFE = registerItem("netherite_knife",
+            new ModKnife(ToolMaterials.NETHERITE, 1, 0F,
+                    new FabricItemSettings().group(ItemGroup.COMBAT)));
+
+    public static final Item VOID_QUARTZ_KNIFE = registerItem("void_quartz_knife",
+            new ModKnife(ModToolMaterials.VOID_QUARTZ, 1, 0F,
+                    new FabricItemSettings().group(ItemGroup.COMBAT)));
+
+
+
+    // Bows
+
+    public static final Item IRON_BOW = registerItem("iron_bow",
+            new ModBowItem(ToolMaterials.IRON, 2, 3,
+                    new FabricItemSettings().group(ItemGroup.COMBAT)));
+
+
 
     // foods
 
