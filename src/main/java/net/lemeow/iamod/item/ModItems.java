@@ -16,23 +16,23 @@ public class ModItems {
 
     // COPPER TOOLS
     public static final Item COPPER_SHOVEL = registerItem("copper_shovel",
-            new ModCopperShovel(ModToolMaterials.COPPER, 2, 2f,
+            new ModShovel(ModToolMaterials.COPPER, 2, 2f,
                     new FabricItemSettings().group(ItemGroup.TOOLS)));
 
     public static final Item COPPER_PICKAXE = registerItem("copper_pickaxe",
-            new ModCopperPickaxe(ModToolMaterials.COPPER, 1, 2f,
+            new ModPickaxe(ModToolMaterials.COPPER, 1, 2f,
                     new FabricItemSettings().group(ItemGroup.TOOLS)));
 
     public static final Item COPPER_AXE = registerItem("copper_axe",
-            new ModCopperAxe(ModToolMaterials.COPPER, 7.5f, 2f,
+            new ModAxe(ModToolMaterials.COPPER, 7.5f, 2f,
                     new FabricItemSettings().group(ItemGroup.TOOLS)));
 
     public static final Item COPPER_SWORD = registerItem("copper_sword",
-            new SwordItem(ModToolMaterials.COPPER, 4, 2f,
+            new ModSword(ModToolMaterials.COPPER, 4, 2f,
                     new FabricItemSettings().group(ItemGroup.COMBAT)));
 
     public static final Item COPPER_HOE = registerItem("copper_hoe",
-            new ModCopperHoe(ModToolMaterials.COPPER, 1, 2f,
+            new ModHoe(ModToolMaterials.COPPER, 1, 2f,
                     new FabricItemSettings().group(ItemGroup.TOOLS)));
 
     // Copper Nugget, made by smelting tools/armor and crafting from an ingot
@@ -104,15 +104,15 @@ public class ModItems {
     // Void Quartz Tools
 
     public static final Item VOID_QUARTZ_SHOVEL = registerItem("void_quartz_shovel",
-            new ModCopperShovel(ModToolMaterials.VOID_QUARTZ, 2, -3.0F,
+            new ModShovel(ModToolMaterials.VOID_QUARTZ, 2, -3.0F,
                     new FabricItemSettings().group(ModItemGroup.VOID_QUARTZ).fireproof().rarity(Rarity.EPIC)));
 
     public static final Item VOID_QUARTZ_PICKAXE = registerItem("void_quartz_pickaxe",
-            new ModCopperPickaxe(ModToolMaterials.VOID_QUARTZ, 1, -2.8F,
+            new ModPickaxe(ModToolMaterials.VOID_QUARTZ, 1, -2.8F,
                     new FabricItemSettings().group(ModItemGroup.VOID_QUARTZ).fireproof().rarity(Rarity.EPIC)));
 
     public static final Item VOID_QUARTZ_AXE = registerItem("void_quartz_axe",
-            new ModCopperAxe(ModToolMaterials.VOID_QUARTZ, 7.5F, -3F,
+            new ModAxe(ModToolMaterials.VOID_QUARTZ, 7.5F, -3F,
                     new FabricItemSettings().group(ModItemGroup.VOID_QUARTZ).fireproof().rarity(Rarity.EPIC)));
 
     public static final Item VOID_QUARTZ_SWORD = registerItem("void_quartz_sword",
@@ -120,7 +120,7 @@ public class ModItems {
                     new FabricItemSettings().group(ModItemGroup.VOID_QUARTZ).fireproof().rarity(Rarity.EPIC)));
 
     public static final Item VOID_QUARTZ_HOE = registerItem("void_quartz_hoe",
-            new ModCopperHoe(ModToolMaterials.VOID_QUARTZ, -5, 0F,
+            new ModHoe(ModToolMaterials.VOID_QUARTZ, -5, 0F,
                     new FabricItemSettings().group(ModItemGroup.VOID_QUARTZ).fireproof().rarity(Rarity.EPIC)));
 
 
@@ -161,15 +161,35 @@ public class ModItems {
 
 
     // Bows
-
+    // todo: add the correct damage and attackspeed.
     public static final Item IRON_BOW = registerItem("iron_bow",
             new ModBowItem(ToolMaterials.IRON, 2, 3,
+                    new FabricItemSettings().group(ItemGroup.COMBAT).maxDamage(640)));
+    public static final Item COPPER_BOW = registerItem("copper_bow",
+            new ModBowItem(ModToolMaterials.COPPER, 2, 3,
+                    new FabricItemSettings().group(ItemGroup.COMBAT).maxDamage(640)));
+
+    public static final Item GOLD_BOW = registerItem("gold_bow",
+            new ModBowItem(ToolMaterials.GOLD, 2, 3,
+                    new FabricItemSettings().group(ItemGroup.COMBAT).maxDamage(640)));
+
+    public static final Item DIAMOND_BOW = registerItem("diamond_bow",
+            new ModBowItem(ToolMaterials.DIAMOND, 2, 3,
+                    new FabricItemSettings().group(ItemGroup.COMBAT).maxDamage(640)));
+
+    public static final Item NETHERITE_BOW = registerItem("netherite_bow",
+            new ModBowItem(ToolMaterials.NETHERITE, 2, 3,
+                    new FabricItemSettings().group(ItemGroup.COMBAT).maxDamage(640)));
+
+    public static final Item VOID_QUARTZ_BOW = registerItem("void_quartz_bow",
+            new ModBowItem(ModToolMaterials.VOID_QUARTZ, 2, 3,
                     new FabricItemSettings().group(ItemGroup.COMBAT).maxDamage(640)));
 
 
 
-    // foods
 
+    // foods
+    // todo: add the right food amount and add the textures
     public static final Item COW_CHEESE = registerItem("cow_cheese", new Item(new FabricItemSettings()
             .group(ItemGroup.FOOD).food(ModFoodComponents.COW_CHEESE))
     );
