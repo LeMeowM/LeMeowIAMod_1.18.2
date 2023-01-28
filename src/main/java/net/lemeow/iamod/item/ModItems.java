@@ -125,37 +125,37 @@ public class ModItems {
 
 
     // Knives
-
+    // todo: add the right damage for all these knives
     public static final Item WOOD_DAGGER = registerItem("wood_dagger",
-            new ModKnife(ToolMaterials.STONE, 1, 0F,
+            new ModKnife(ToolMaterials.WOOD, 1, 0F,
                     new FabricItemSettings().group(ItemGroup.COMBAT)));
 
     public static final Item STONE_DAGGER = registerItem("stone_dagger",
-            new ModKnife(ToolMaterials.STONE, 1, 0F,
+            new ModKnife(ToolMaterials.STONE, 2, 0F,
                     new FabricItemSettings().group(ItemGroup.COMBAT)));
 
     public static final Item COPPER_DAGGER = registerItem("copper_dagger",
-            new ModKnife(ModToolMaterials.COPPER, 1, 0F,
+            new ModKnife(ModToolMaterials.COPPER, 3, 0F,
                     new FabricItemSettings().group(ItemGroup.COMBAT)));
 
     public static final Item IRON_DAGGER = registerItem("iron_dagger",
-            new ModKnife(ToolMaterials.IRON, 1, 0F,
+            new ModKnife(ToolMaterials.IRON, 4, 0F,
                     new FabricItemSettings().group(ItemGroup.COMBAT)));
 
     public static final Item GOLD_DAGGER = registerItem("gold_dagger",
-            new ModKnife(ToolMaterials.GOLD, 1, 0F,
+            new ModKnife(ToolMaterials.GOLD, 3, 0F,
                     new FabricItemSettings().group(ItemGroup.COMBAT)));
 
     public static final Item DIAMOND_DAGGER = registerItem("diamond_dagger",
-            new ModKnife(ToolMaterials.DIAMOND, 1, 0F,
+            new ModKnife(ToolMaterials.DIAMOND, 5, 0F,
                     new FabricItemSettings().group(ItemGroup.COMBAT)));
 
     public static final Item NETHERITE_DAGGER = registerItem("netherite_dagger",
-            new ModKnife(ToolMaterials.NETHERITE, 1, 0F,
+            new ModKnife(ToolMaterials.NETHERITE, 8, 0F,
                     new FabricItemSettings().group(ItemGroup.COMBAT)));
 
     public static final Item VOID_QUARTZ_DAGGER = registerItem("void_quartz_dagger",
-            new ModKnife(ModToolMaterials.VOID_QUARTZ, 1, 0F,
+            new ModKnife(ModToolMaterials.VOID_QUARTZ, 12, 0F,
                     new FabricItemSettings().group(ItemGroup.COMBAT)));
 
 

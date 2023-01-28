@@ -18,7 +18,7 @@ public class ModBowItem extends BowItem {
     public ModBowItem(ToolMaterial toolMaterial, int attackDamage, float attackSpeed, Settings settings) {
         super(settings);
         material = toolMaterial;
-        damage = attackDamage;
+        damage = (int) (attackDamage+material.getAttackDamage());
         speed = attackSpeed;
     }
 
@@ -48,7 +48,7 @@ public class ModBowItem extends BowItem {
                         PersistentProjectileEntity persistentProjectileEntity = arrowItem.createArrow(world, itemStack, playerEntity);
                         persistentProjectileEntity.setVelocity(playerEntity, playerEntity.getPitch(), playerEntity.getYaw(), 0.0F, f * speed, 2.0F/speed);
 
-                        // add damage
+                        // adds damage
                         persistentProjectileEntity.setDamage(persistentProjectileEntity.getDamage() + damage);
 
                         if (f == 1.0F) {
@@ -79,7 +79,7 @@ public class ModBowItem extends BowItem {
                         world.spawnEntity(persistentProjectileEntity);
                     }
 
-                    world.playSound((PlayerEntity)null, playerEntity.getX(), playerEntity.getY(), playerEntity.getZ(), SoundEvents.ENTITY_ARROW_SHOOT, SoundCategory.PLAYERS, 1.0F, 1.0F / (world.getRandom().nextFloat() * 0.4F + 1.2F) + f * 0.5F);
+                    world.playSound(null, playerEntity.getX(), playerEntity.getY(), playerEntity.getZ(), SoundEvents.ENTITY_ARROW_SHOOT, SoundCategory.PLAYERS, 1.0F, 1.0F / (world.getRandom().nextFloat() * 0.4F + 1.2F) + f * 0.5F);
                     if (!bl2 && !playerEntity.getAbilities().creativeMode) {
                         itemStack.decrement(1);
                         if (itemStack.isEmpty()) {
