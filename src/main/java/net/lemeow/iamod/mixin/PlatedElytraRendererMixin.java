@@ -1,6 +1,6 @@
 package net.lemeow.iamod.mixin;
 
-import net.lemeow.iamod.item.ModItems;
+import net.lemeow.iamod.item.custom.PlatedElytra;
 import net.minecraft.client.render.entity.feature.ElytraFeatureRenderer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -9,7 +9,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Redirect;
 
 /**
- * Lord Almighty may you have mercy on me
+ * Lord Almighty may you have mercy on me, this has got to be the most scuffed render shim ive ever done...
  */
 @Mixin(ElytraFeatureRenderer.class)
 public class PlatedElytraRendererMixin {
@@ -21,7 +21,7 @@ public class PlatedElytraRendererMixin {
             )
     )
     private boolean acceptPlatedElytra(ItemStack itemStack, Item item){
-        return itemStack.isOf(item)||itemStack.isOf(ModItems.VOID_QUARTZ_CHESTPLATE_WINGS);
+        return itemStack.isOf(item)||itemStack.getItem() instanceof PlatedElytra;
     }
 
 }

@@ -3,6 +3,7 @@ package net.lemeow.iamod.block.custom.cheesemold;
 import net.minecraft.state.property.IntProperty;
 import net.minecraft.state.property.Properties;
 
+// todo: fix this
 public class LeveledCheeseMoldBlock extends AbstractCheeseMoldBlock{
 
     public static final IntProperty LEVEL;

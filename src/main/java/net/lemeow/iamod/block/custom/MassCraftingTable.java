@@ -14,7 +14,7 @@ import net.minecraft.util.Hand;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-
+// todo: fix this, it opens but doesn't stay open.
 public class MassCraftingTable extends Block {
 
     private static final Text TITLE = new TranslatableText("container.mass_crafting");

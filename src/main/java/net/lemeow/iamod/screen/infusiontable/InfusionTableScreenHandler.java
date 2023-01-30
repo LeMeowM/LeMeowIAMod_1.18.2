@@ -62,6 +62,7 @@ public class InfusionTableScreenHandler extends ScreenHandler {
 
 
     // this is to move blocks from one place to another
+    // todo: shift clicking a stack into the last stack doesnt work as intended.
     @Override
     public ItemStack transferSlot(PlayerEntity player, int invSlot) {
         // gets the slot of index invSlot
@@ -72,9 +73,14 @@ public class InfusionTableScreenHandler extends ScreenHandler {
         if(slot != null && slot.hasStack()){
             ItemStack ogStack = slot.getStack();
             newStack = ogStack.copy();
-            if(invSlot < this.inventory.size() && !this.insertItem(ogStack, this.inventory.size(), this.slots.size(), true)){
+            if(invSlot < this.inventory.size()-1 && !this.insertItem(ogStack, this.inventory.size(), this.slots.size(), true)){
                 return ItemStack.EMPTY;
             }
+            /**
+            else if(invSlot == this.inventory.size()-1 && ogStack.getMaxCount()==1 && ){
+
+            }
+             **/
             else if(!this.insertItem(ogStack, 0, this.slots.size(), false)) return ItemStack.EMPTY;
 
             if (ogStack.isEmpty()){

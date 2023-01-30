@@ -1,0 +1,592 @@
+@startuml
+class net.lemeow.iamod.item.custom.ModKnife {
++ boolean postHit(ItemStack,LivingEntity,LivingEntity)
+}
+class net.lemeow.iamod.mixin.MixinGoatEntity {
+- Hand capturedHand
+- void iamodSetCapturedHand(PlayerEntity,Hand,CallbackInfoReturnable<ActionResult>)
+- ItemStack iamodMilkGoat(ItemStack,PlayerEntity,ItemStack)
+}
+class net.lemeow.iamod.world.biome.land.EndForestBiome {
+# void addCustomBuildData(BCLBiomeBuilder)
+}
+class net.lemeow.iamod.world.gen.ModOreGeneration {
++ {static} void generateOres()
++ {static} void registerConfiguredFeatures()
+}
+interface net.lemeow.iamod.item.inventory.ImplementedInventory {
+~ DefaultedList<ItemStack> getItems()
+~ {static} ImplementedInventory of(DefaultedList<ItemStack>)
+~ {static} ImplementedInventory ofSize(int)
+~ int[] getAvailableSlots(Direction)
+~ boolean canInsert(int,ItemStack,Direction)
+~ boolean canExtract(int,ItemStack,Direction)
+~ int size()
+~ boolean isEmpty()
+~ ItemStack getStack(int)
+~ ItemStack removeStack(int,int)
+~ ItemStack removeStack(int)
+~ void setStack(int,ItemStack)
+~ void clear()
+~ void markDirty()
+~ boolean canPlayerUse(PlayerEntity)
+}
+class net.lemeow.iamod.world.generator.EndGeneratorOptions {
+- {static} int biomeSizeCaves
+- {static} boolean hasPortal
+- {static} boolean hasPillars
+- {static} boolean hasDragonFights
+- {static} boolean changeChorusPlant
+- {static} boolean newGenerator
+- {static} boolean generateCentralIsland
+- {static} boolean generateObsidianPlatform
+- {static} int endCityFailChance
++ {static} EndLayerOptions bigOptions
++ {static} EndLayerOptions mediumOptions
++ {static} EndLayerOptions smallOptions
+- {static} boolean changeSpawn
+- {static} BlockPos spawn
+- {static} boolean replacePortal
+- {static} boolean replacePillars
+- {static} int islandDistChunk
+- {static} boolean directSpikeHeight
+- {static} int circleRadius
+- {static} int circleRadiusSqr
++ {static} void init()
++ {static} int getBiomeSizeCaves()
++ {static} boolean hasPortal()
++ {static} boolean hasPillars()
++ {static} boolean hasDragonFights()
++ {static} boolean changeChorusPlant()
++ {static} boolean useNewGenerator()
++ {static} boolean hasCentralIsland()
++ {static} boolean generateObsidianPlatform()
++ {static} int getEndCityFailChance()
++ {static} boolean changeSpawn()
++ {static} BlockPos getSpawn()
++ {static} boolean replacePortal()
++ {static} boolean replacePillars()
++ {static} int getIslandDistBlock()
++ {static} int getIslandDistBlockSqr()
++ {static} int getIslandDistChunk()
++ {static} void setDirectSpikeHeight()
++ {static} boolean isDirectSpikeHeight()
+}
+class net.lemeow.iamod.config.Configs {
++ {static} IdConfig BIOME_CONFIG
++ {static} PathConfig GENERATOR_CONFIG
++ {static} PathConfig CLIENT_CONFIG
++ {static} void saveConfigs()
+}
+class net.lemeow.iamod.entity.custom.AbstractCapybaraEntity {
+- {static} TrackedData<Boolean> CHEST
++ boolean hasChest()
++ void setHasChest(boolean)
+# void initDataTracker()
+# boolean receiveFood(PlayerEntity,ItemStack)
+# int getInventorySize()
++ double getMountedHeightOffset()
+# void dropInventory()
+}
+class net.lemeow.iamod.IAModClientMod {
++ void onInitializeClient()
+}
+class net.lemeow.iamod.screen.infusiontable.InfusionTableScreenHandler {
+- SimpleInventory inventory
+- PropertyDelegate propertyDelegate
++ boolean isCrafting()
++ boolean canUse(PlayerEntity)
++ ItemStack transferSlot(PlayerEntity,int)
+- void addPlayerInvetory(PlayerInventory)
+- void addPlayerHotbar(PlayerInventory)
++ int getScaledProgress()
++ Item getResultSlot()
+}
+class net.lemeow.iamod.world.feature.ModOreFeatures {
++ {static} List<PlacementModifier> modifiers(PlacementModifier,PlacementModifier)
++ {static} List<PlacementModifier> modifiersWithCount(int,PlacementModifier)
++ {static} List<PlacementModifier> modifiersWithRarity(int,PlacementModifier)
+}
+class net.lemeow.iamod.world.feature.ModPlacedFeatures {
++ {static} RegistryEntry<PlacedFeature> END_VOID_ORE_PLACED
+}
+class net.lemeow.iamod.block.custom.BigRedMushroom {
+}
+class net.lemeow.iamod.block.entity.InfusionTableBlockEntity {
+- SimpleInventory inventory
+# PropertyDelegate propertyDelegate
+- int progress
+- int maxProgress
++ void setStack(int,ItemStack)
++ DefaultedList<ItemStack> getItems()
++ DefaultedList<ItemStack> getFuel()
++ Text getDisplayName()
++ ScreenHandler createMenu(int,PlayerInventory,PlayerEntity)
+# void writeNbt(NbtCompound)
++ void readNbt(NbtCompound)
++ {static} Optional<InfusionTableRecipe> getMatchedRecipe(InfusionTableBlockEntity)
++ {static} void tick(World,BlockPos,BlockState,InfusionTableBlockEntity)
++ {static} void craftItem(InfusionTableBlockEntity)
+- void resetProgress()
+}
+class net.lemeow.iamod.world.biome.ModEndFeatures {
++ {static} BCLBiomeBuilder addDefaultFeatures(BCLBiomeBuilder,boolean)
+}
+class net.lemeow.iamod.world.biome.ModEndBiomes {
++ {static} BiomePicker CAVE_BIOMES
+- {static} HexBiomeMap caveBiomeMap
+- {static} long lastSeed
++ {static} ModBiomeGeneration END_FOREST
++ {static} void register()
+- {static} void onWorldLoad(ServerWorld,long,Registry<Biome>)
++ {static} ModBiomeGeneration registerSubBiome(ModBiomeGeneration.Config,ModBiomeGeneration)
++ {static} ModBiomeGeneration registerBiome(ModBiomeGeneration.Config,BiomeType)
++ {static} ModBiomeGeneration registerSubBiomeIntegration(ModBiomeGeneration.Config)
++ {static} void addSubBiomeIntegration(ModBiomeGeneration,Identifier)
+}
+class net.lemeow.iamod.item.custom.ModBowItem {
++ {static} int damage
++ {static} float speed
++ {static} ToolMaterial material
++ void onStoppedUsing(ItemStack,World,LivingEntity,int)
++ int getMaxUseTime(ItemStack)
++ int getEnchantability()
+}
+class net.lemeow.iamod.entity.custom.CapybaraEntity {
+- AnimationFactory factory
+- DefaultedList<ItemStack> inventory
+# int getInventorySize()
+# void dropInventory()
++ void writeCustomDataToNbt(NbtCompound)
++ void readCustomDataFromNbt(NbtCompound)
++ {static} DefaultAttributeContainer.Builder setAttributes()
+# void initGoals()
+- PlayState predicate(AnimationEvent<E>)
++ PassiveEntity createChild(ServerWorld,PassiveEntity)
++ void registerControllers(AnimationData)
++ AnimationFactory getFactory()
+# SoundEvent getAmbientSound()
+# SoundEvent getHurtSound(DamageSource)
+# SoundEvent getDeathSound()
+# void playStepSound(BlockPos,BlockState)
+}
+class net.lemeow.iamod.renderer.InfusionTableItemRenderer {
++ void render(InfusionTableBlockEntity,float,MatrixStack,VertexConsumerProvider,int,int)
+}
+class net.lemeow.iamod.block.entity.ModBlockEntities {
++ {static} BlockEntityType<InfusionTableBlockEntity> INFUSION_TABLE
++ {static} void registerAllBlockEntities()
+}
+class net.lemeow.iamod.recipe.ModRecipes {
++ {static} void registerRecipes()
+}
+class net.lemeow.iamod.util.ModRegistries {
++ {static} void registerModStuff()
+- {static} void registerFuels()
+}
+enum net.lemeow.iamod.item.ModToolMaterials {
++  COPPER
++  VOID_QUARTZ
+- int miningLevel
+- int itemDurability
+- float miningSpeed
+- float attackDamage
+- int enchantability
+- Lazy<Ingredient> repairIngredient
++ int getDurability()
++ float getMiningSpeedMultiplier()
++ float getAttackDamage()
++ int getMiningLevel()
++ int getEnchantability()
++ Ingredient getRepairIngredient()
+}
+class net.lemeow.iamod.block.custom.cheesemold.LeveledCheeseMoldBlock {
++ {static} IntProperty LEVEL
+}
+class net.lemeow.iamod.screen.infusiontable.InfusionTableScreen {
+- {static} Identifier TEXTURE
++ {static} int DELTA
+# void init()
+# void drawBackground(MatrixStack,float,int,int)
++ void render(MatrixStack,int,int,float)
+}
+class net.lemeow.iamod.util.ModTags {
+}
+class net.lemeow.iamod.util.ModTags.Blocks {
+- {static} TagKey<Block> createTag(String)
+- {static} TagKey<Block> createCommonTag(String)
+}
+class net.lemeow.iamod.util.ModTags.Items {
++ {static} TagKey<Item> NETHERITES
+- {static} TagKey<Item> createTag(String)
+- {static} TagKey<Item> createCommonTag(String)
+}
+class net.lemeow.iamod.block.custom.InfusionTableBlock {
++ {static} DirectionProperty FACING
+- {static} VoxelShape SHAPE_N
++ VoxelShape getOutlineShape(BlockState,BlockView,BlockPos,ShapeContext)
++ BlockState getPlacementState(ItemPlacementContext)
++ BlockState rotate(BlockState,BlockRotation)
++ BlockState mirror(BlockState,BlockMirror)
+# void appendProperties(StateManager.Builder<Block,BlockState>)
++ BlockRenderType getRenderType(BlockState)
++ BlockEntity createBlockEntity(BlockPos,BlockState)
++ void onStateReplaced(BlockState,World,BlockPos,BlockState,boolean)
++ ActionResult onUse(BlockState,World,BlockPos,PlayerEntity,Hand,BlockHitResult)
++ BlockEntityTicker<T> getTicker(World,BlockState,BlockEntityType<T>)
++ int getComparatorOutput(BlockState,World,BlockPos)
++ boolean hasComparatorOutput(BlockState)
+}
+class net.lemeow.iamod.item.custom.ModCopperSword {
+}
+class net.lemeow.iamod.entity.ai.WaterChillGoal {
+- PathAwareEntity mob
++ boolean canStart()
++ void start()
+}
+class net.lemeow.iamod.screen.MassCraftingScreen {
+}
+class net.lemeow.iamod.mixin.MixinSheepEntity {
+- void iamodMilkSheep(PlayerEntity,Hand,CallbackInfoReturnable<ActionResult>)
+}
+class net.lemeow.iamod.item.custom.PlatedElytra {
+}
+abstract class net.lemeow.iamod.mixin.LightningMixin {
+- void iamodLightningAddGlass(CallbackInfo)
+- void makeSand()
+}
+class net.lemeow.iamod.item.ModFoodComponents {
++ {static} FoodComponent COW_CHEESE
++ {static} FoodComponent SHEEP_CHEESE
++ {static} FoodComponent GOAT_CHEESE
++ {static} void registerModFoodComponents()
+}
+class net.lemeow.iamod.world.gen.ModWorldGen {
++ {static} void generateModWorldGen()
+}
+class net.lemeow.iamod.block.custom.MassCraftingTable {
+- {static} Text TITLE
++ ActionResult onUse(BlockState,World,BlockPos,PlayerEntity,Hand,BlockHitResult)
++ NamedScreenHandlerFactory createScreenHandlerFactory(BlockState,World,BlockPos)
+}
+class net.lemeow.iamod.screen.MassCraftingScreenHandler {
++ CraftingInventory input
+- CraftingResultInventory result
+- ScreenHandlerContext context
+- PlayerEntity player
++ void populateRecipeFinder(RecipeMatcher)
++ void clearCraftingSlots()
++ boolean matches(Recipe<? super CraftingInventory>)
++ int getCraftingResultSlotIndex()
++ int getCraftingWidth()
++ int getCraftingHeight()
++ int getCraftingSlotCount()
++ RecipeBookCategory getCategory()
++ boolean canInsertIntoSlot(int)
++ boolean canUse(PlayerEntity)
+}
+class net.lemeow.iamod.world.biome.ModEndTags {
++ {static} void registerModEndTags()
++ {static} void addEndGround(Block)
++ {static} void addBiomeSurfaceToEndGroup(ModBiomeGeneration)
+}
+enum net.lemeow.iamod.item.ModArmorMaterials {
++  COPPER
++  VOID_QUARTZ
+- {static} int[] BASE_DURABILITY
+- String name
+- int durabilityMultiplier
+- int[] protectionAmounts
+- int enchantability
+- SoundEvent equipSound
+- float toughness
+- float knockbackResistance
+- Lazy<Ingredient> repairIngredientSupplier
++ int getDurability(EquipmentSlot)
++ int getProtectionAmount(EquipmentSlot)
++ int getEnchantability()
++ SoundEvent getEquipSound()
++ Ingredient getRepairIngredient()
++ String getName()
++ float getToughness()
++ float getKnockbackResistance()
+}
+class net.lemeow.iamod.mixin.PlatedElytraRendererMixin {
+- boolean acceptPlatedElytra(ItemStack,Item)
+}
+class net.lemeow.iamod.screen.slot.ModResultSlot {
++ boolean canInsert(ItemStack)
++ int getMaxItemCount()
+}
+class net.lemeow.iamod.item.custom.ModCopperShovel {
+}
+class net.lemeow.iamod.IAMod {
++ {static} String MOD_ID
++ {static} Logger LOGGER
++ void onInitialize()
+}
+class net.lemeow.iamod.mixin.EmptyBottleMixin {
++ void airBottleFunctionality(World,PlayerEntity,Hand,CallbackInfoReturnable<TypedActionResult<ItemStack>>)
+}
+class net.lemeow.iamod.item.custom.ModCopperHoe {
+}
+class net.lemeow.iamod.screen.slot.ModFuelSlot {
++ boolean canInsert(ItemStack)
++ int getMaxItemCount(ItemStack)
+}
+class net.lemeow.iamod.world.feature.ModConfiguredFeatures {
++ {static} List<OreFeatureConfig.Target> END_VOID_ORES
++ {static} RegistryEntry<ConfiguredFeature<OreFeatureConfig,?>> VOID_QUARTZ_ORE
+}
+class net.lemeow.iamod.mixin.PotionMixin {
++ void checkIfInWater(World,PlayerEntity,Hand,CallbackInfoReturnable<TypedActionResult<ItemStack>>)
+}
+class net.lemeow.iamod.mixin.ModItemMixin {
++ void damage(DamageSource,CallbackInfoReturnable<Boolean>)
++ Item asItem()
+}
+class net.lemeow.iamod.item.ModItems {
++ {static} Item COPPER_SHOVEL
++ {static} Item COPPER_PICKAXE
++ {static} Item COPPER_AXE
++ {static} Item COPPER_SWORD
++ {static} Item COPPER_HOE
++ {static} Item COPPER_NUGGET
++ {static} Item COPPER_HELMET
++ {static} Item COPPER_CHESTPLATE
++ {static} Item COPPER_LEGGINGS
++ {static} Item COPPER_BOOTS
++ {static} Item COPPER_HORSE_ARMOR
++ {static} Item VOID_QUARTZ_SHARD
++ {static} Item VOID_QUARTZ_INGOT
++ {static} Item VOID_QUARTZ_HELMET
++ {static} Item VOID_QUARTZ_CHESTPLATE
++ {static} Item VOID_QUARTZ_CHESTPLATE_WINGS
++ {static} Item VOID_QUARTZ_LEGGINGS
++ {static} Item VOID_QUARTZ_BOOTS
++ {static} Item VOID_QUARTZ_SHOVEL
++ {static} Item VOID_QUARTZ_PICKAXE
++ {static} Item VOID_QUARTZ_AXE
++ {static} Item VOID_QUARTZ_SWORD
++ {static} Item VOID_QUARTZ_HOE
++ {static} Item WOOD_DAGGER
++ {static} Item STONE_DAGGER
++ {static} Item COPPER_DAGGER
++ {static} Item IRON_DAGGER
++ {static} Item GOLD_DAGGER
++ {static} Item DIAMOND_DAGGER
++ {static} Item NETHERITE_DAGGER
++ {static} Item VOID_QUARTZ_DAGGER
++ {static} Item IRON_BOW
++ {static} Item COW_CHEESE
++ {static} Item SHEEP_CHEESE
++ {static} Item GOAT_CHEESE
++ {static} Item GOAT_MILK_BUCKET
++ {static} Item SHEEP_MILK_BUCKET
+- {static} Item registerItem(String,Item)
++ {static} void registerModItems()
+}
+class net.lemeow.iamod.block.ModBlocks {
++ {static} Block VOID_QUARTZ_ORE
++ {static} Block VOID_QUARTZ_INGOT_BLOCK
++ {static} Block VOID_QUARTZ_BLOCK
++ {static} Block INFUSION_TABLE
++ {static} Block MASS_CRAFTING_TABLE
++ {static} Block EMPTY_CHEESE_MOLD_BLOCK
++ {static} Block SHEEP_CHEESE_MOLD_BLOCK
++ {static} Block GOAT_CHEESE_MOLD_BLOCK
++ {static} Block COW_CHEESE_MOLD_BLOCK
++ {static} Block registerBlock(String,Block,ItemGroup)
++ {static} Block registerBlock(String,Block,ItemGroup,UniformIntProvider)
++ {static} Block registerVoidBlock(String,Block,ItemGroup)
++ {static} Block registerVoidBlock(String,Block,ItemGroup,UniformIntProvider)
+- {static} Item registerBlockItem(String,Block,ItemGroup)
+- {static} Item registerVoidItem(String,Block,ItemGroup)
++ {static} void registerMudBlocks()
+}
+class net.lemeow.iamod.util.ModLootTableModifiers {
+- {static} Identifier SIMPLE_DUNGEON_CHEST_ID
+- {static} Identifier DUNGEON_CORRIDOR_CHEST_ID
+- {static} Identifier DUNGEON_CROSSING_CHEST_ID
+- {static} Identifier DESERT_TEMPLE_CHEST_ID
+- {static} Identifier END_CITY_CHEST_ID
+- {static} Identifier JUNGLE_TEMPLE_CHEST_ID
+- {static} Identifier FORTRESS_CHEST_ID
+- {static} Identifier WEAPONSMITH_CHEST_ID
+~ {static} List<Identifier> identifiers
+~ {static} List<Float> chances
++ {static} void modifyLootTables()
+}
+class net.lemeow.iamod.block.custom.cheesemold.AbstractCheeseMoldBlock {
++ {static} int MAX_LEVEL
+# {static} VoxelShape OUTLINE_SHAPE
+- {static} VoxelShape RAYCAST_SHAPE
++ {static} void registerCheesableItems(Item)
++ ActionResult onUse(BlockState,World,BlockPos,PlayerEntity,Hand,BlockHitResult)
++ boolean hasComparatorOutput(BlockState)
+}
+class net.lemeow.iamod.screen.ModScreenHandlers {
++ {static} ScreenHandlerType<InfusionTableScreenHandler> INFUSION_TABLE_SCREEN_HANDLER
++ {static} ScreenHandlerType<MassCraftingScreenHandler> MASS_CRAFTING_TABLE_HANDLER
++ {static} void registerAllScreenHandlers()
+}
+class net.lemeow.iamod.world.biome.ModSurfaceConfigs {
++ {static} MaterialRules.MaterialRule END_STONE_GRASS
+}
+class net.lemeow.iamod.item.custom.ModCopperPickaxe {
+}
+class net.lemeow.iamod.world.generator.EndLayerOptions {
++ float distance
++ float scale
++ float coverage
++ int center
++ int heightVariation
++ int minY
++ int maxY
++ long centerDist
++ boolean hasCentralIsland
+- float clampDistance(float)
+- float clampScale(float)
+- float clampCoverage(float)
+- int clampCenter(int)
+- int clampVariation(int)
+}
+class net.lemeow.iamod.mixin.ItemDamageMixin {
++ void damageMixin(DamageSource,float,CallbackInfoReturnable<Boolean>)
+}
+class net.lemeow.iamod.item.ModItemGroup {
++ {static} ItemGroup VOID_QUARTZ
+}
+class net.lemeow.iamod.item.custom.ModCopperAxe {
+}
+class net.lemeow.iamod.recipe.InfusionTableRecipe {
+- Identifier id
+- Ingredient input
+- Ingredient fuel
+- ItemStack output
++ Ingredient getFuel()
++ Ingredient getInput()
++ {static} boolean isFueledByItem(SimpleInventory,Ingredient)
++ boolean matches(SimpleInventory,World)
++ ItemStack craft(SimpleInventory)
++ boolean fits(int,int)
++ ItemStack getOutput()
++ Identifier getId()
++ RecipeSerializer<?> getSerializer()
++ RecipeType<?> getType()
+}
+class net.lemeow.iamod.recipe.InfusionTableRecipe.Type {
++ {static} Type INSTANCE
++ {static} String ID
+}
+class net.lemeow.iamod.recipe.InfusionTableRecipe.Serializer {
++ {static} Serializer INSTANCE
++ {static} String ID
++ InfusionTableRecipe read(Identifier,JsonObject)
++ InfusionTableRecipe read(Identifier,PacketByteBuf)
++ void write(PacketByteBuf,InfusionTableRecipe)
+}
+class net.lemeow.iamod.world.gen.ModBiomeGeneration {
++ {static} RegistryKey<Biome> END_FOREST
+- SurfaceMaterialProvider surfMatProv
++ {static} ModBiomeGeneration create(Config)
+- void setSurfaceMaterial(SurfaceMaterialProvider)
++ BlockState getTopMaterial()
++ BlockState getUnderMaterial()
++ BlockState getAltTopMaterial()
++ boolean generateFloorRule()
++ SurfaceRuleBuilder surface()
++ {static} BlockState findTopMaterial(BCLBiome)
++ {static} BlockState findTopMaterial(Biome)
++ {static} BlockState findTopMaterial(StructureWorldAccess,BlockPos)
++ {static} BlockState findUnderMaterial(BCLBiome)
++ {static} BlockState findUnderMaterial(StructureWorldAccess,BlockPos)
+}
+class net.lemeow.iamod.world.gen.ModBiomeGeneration.DefaultSurfaceMaterialProvider {
++ {static} BlockState END_STONE
++ BlockState getTopMaterial()
++ BlockState getUnderMaterial()
++ BlockState getAltTopMaterial()
++ boolean generateFloorRule()
++ SurfaceRuleBuilder surface()
+}
+abstract class net.lemeow.iamod.world.gen.ModBiomeGeneration.Config {
++ {static} SurfaceMaterialProvider DEFAULT
+# {static} StructureFeatureAccessor VANILLA_FEATURES
+# {static} MaterialRules.MaterialRule END_STONE_GRASS
++ Identifier ID
+# {abstract}void addCustomBuildData(BCLBiomeBuilder)
++ BCLBiomeBuilder.BiomeSupplier<ModBiomeGeneration> getSupplier()
+# boolean hasCaves()
+# SurfaceMaterialProvider surfaceMaterial()
+}
+class net.lemeow.iamod.entity.ModEntity {
++ {static} EntityType<CapybaraEntity> CAPYBARA
+}
+interface net.lemeow.iamod.block.custom.cheesemold.CheeseMoldBehavior {
+~ Map<Item,CheeseMoldBehavior> EMPTY_CHEESE_MOLD
+~ Map<Item,CheeseMoldBehavior> COW_CHEESE_MOLD
+~ Map<Item,CheeseMoldBehavior> SHEEP_CHEESE_MOLD
+~ Map<Item,CheeseMoldBehavior> GOAT_CHEESE_MOLD
+~ CheeseMoldBehavior ADD_COW_MILK
+~ CheeseMoldBehavior ADD_GOAT_MILK
+~ CheeseMoldBehavior ADD_SHEEP_MILK
+~ CheeseMoldBehavior DROP_CHEESE
+~ ActionResult interact(BlockState,World,BlockPos,PlayerEntity,Hand,ItemStack)
+~ {static} Object2ObjectOpenHashMap<Item,CheeseMoldBehavior> createMap()
+~ {static} void registerBucketBehavior(Map<Item,CheeseMoldBehavior>)
+~ {static} void registerBehavior()
+~ {static} ActionResult dropCheese(BlockState,World,BlockPos,PlayerEntity,Hand,ItemStack)
+~ {static} ActionResult emptyMold(BlockState,World,BlockPos,PlayerEntity,Hand,ItemStack,ItemStack,Predicate<BlockState>,SoundEvent)
+~ {static} ActionResult fillMold(World,BlockPos,PlayerEntity,Hand,ItemStack,BlockState,SoundEvent)
+}
+
+
+net.minecraft.item.SwordItem <|-- net.lemeow.iamod.item.custom.ModKnife
+net.lemeow.iamod.world.biome.land.Config <|-- net.lemeow.iamod.world.biome.land.EndForestBiome
+net.minecraft.inventory.SidedInventory <|-- net.lemeow.iamod.item.inventory.ImplementedInventory
+net.minecraft.inventory.InventoryChangedListener <|.. net.lemeow.iamod.entity.custom.AbstractCapybaraEntity
+net.minecraft.entity.passive.HorseBaseEntity <|-- net.lemeow.iamod.entity.custom.AbstractCapybaraEntity
+net.fabricmc.api.ClientModInitializer <|.. net.lemeow.iamod.IAModClientMod
+net.minecraft.screen.ScreenHandler <|-- net.lemeow.iamod.screen.infusiontable.InfusionTableScreenHandler
+net.minecraft.block.MushroomPlantBlock <|-- net.lemeow.iamod.block.custom.BigRedMushroom
+net.minecraft.screen.NamedScreenHandlerFactory <|.. net.lemeow.iamod.block.entity.InfusionTableBlockEntity
+net.lemeow.iamod.item.inventory.ImplementedInventory <|.. net.lemeow.iamod.block.entity.InfusionTableBlockEntity
+net.minecraft.block.entity.BlockEntity <|-- net.lemeow.iamod.block.entity.InfusionTableBlockEntity
+net.lemeow.iamod.item.custom.BowItem <|-- net.lemeow.iamod.item.custom.ModBowItem
+software.bernie.geckolib3.core.IAnimatable <|.. net.lemeow.iamod.entity.custom.CapybaraEntity
+net.lemeow.iamod.entity.custom.AbstractCapybaraEntity <|-- net.lemeow.iamod.entity.custom.CapybaraEntity
+net.minecraft.client.render.block.entity.BlockEntityRenderer <|.. net.lemeow.iamod.renderer.InfusionTableItemRenderer
+net.lemeow.iamod.block.custom.cheesemold.AbstractCheeseMoldBlock <|-- net.lemeow.iamod.block.custom.cheesemold.LeveledCheeseMoldBlock
+net.minecraft.client.gui.screen.ingame.HandledScreen <|-- net.lemeow.iamod.screen.infusiontable.InfusionTableScreen
+net.lemeow.iamod.util.ModTags +.. net.lemeow.iamod.util.ModTags.Blocks
+net.lemeow.iamod.util.ModTags +.. net.lemeow.iamod.util.ModTags.Items
+net.lemeow.iamod.block.custom.BlockEntityProvider <|.. net.lemeow.iamod.block.custom.InfusionTableBlock
+net.lemeow.iamod.block.custom.BlockWithEntity <|-- net.lemeow.iamod.block.custom.InfusionTableBlock
+net.minecraft.item.SwordItem <|-- net.lemeow.iamod.item.custom.ModCopperSword
+net.minecraft.entity.ai.goal.Goal <|-- net.lemeow.iamod.entity.ai.WaterChillGoal
+net.fabricmc.fabric.api.entity.event.v1.FabricElytraItem <|.. net.lemeow.iamod.item.custom.PlatedElytra
+net.lemeow.iamod.item.custom.ArmorItem <|-- net.lemeow.iamod.item.custom.PlatedElytra
+net.minecraft.block.Block <|-- net.lemeow.iamod.block.custom.MassCraftingTable
+net.minecraft.screen.AbstractRecipeScreenHandler <|-- net.lemeow.iamod.screen.MassCraftingScreenHandler
+net.minecraft.screen.slot.Slot <|-- net.lemeow.iamod.screen.slot.ModResultSlot
+net.minecraft.item.ShovelItem <|-- net.lemeow.iamod.item.custom.ModCopperShovel
+net.fabricmc.api.ModInitializer <|.. net.lemeow.iamod.IAMod
+net.minecraft.item.HoeItem <|-- net.lemeow.iamod.item.custom.ModCopperHoe
+net.minecraft.screen.slot.Slot <|-- net.lemeow.iamod.screen.slot.ModFuelSlot
+net.minecraft.item.ItemConvertible <|.. net.lemeow.iamod.mixin.ModItemMixin
+net.fabricmc.fabric.api.item.v1.FabricItem <|.. net.lemeow.iamod.mixin.ModItemMixin
+net.minecraft.block.Block <|-- net.lemeow.iamod.block.custom.cheesemold.AbstractCheeseMoldBlock
+net.minecraft.item.PickaxeItem <|-- net.lemeow.iamod.item.custom.ModCopperPickaxe
+net.minecraft.item.AxeItem <|-- net.lemeow.iamod.item.custom.ModCopperAxe
+net.lemeow.iamod.recipe.Recipe <|.. net.lemeow.iamod.recipe.InfusionTableRecipe
+net.lemeow.iamod.recipe.InfusionTableRecipe +.. net.lemeow.iamod.recipe.InfusionTableRecipe.Type
+net.lemeow.iamod.recipe.RecipeType <|.. net.lemeow.iamod.recipe.InfusionTableRecipe.Type
+net.lemeow.iamod.recipe.InfusionTableRecipe +.. net.lemeow.iamod.recipe.InfusionTableRecipe.Serializer
+net.lemeow.iamod.recipe.RecipeSerializer <|.. net.lemeow.iamod.recipe.InfusionTableRecipe.Serializer
+ru.bclib.interfaces.SurfaceMaterialProvider <|.. net.lemeow.iamod.world.gen.ModBiomeGeneration
+ru.bclib.world.biomes.BCLBiome <|-- net.lemeow.iamod.world.gen.ModBiomeGeneration
+net.lemeow.iamod.world.gen.ModBiomeGeneration +.. net.lemeow.iamod.world.gen.ModBiomeGeneration.DefaultSurfaceMaterialProvider
+net.lemeow.iamod.world.gen.SurfaceMaterialProvider <|.. net.lemeow.iamod.world.gen.ModBiomeGeneration.DefaultSurfaceMaterialProvider
+net.lemeow.iamod.world.gen.ModBiomeGeneration +.. net.lemeow.iamod.world.gen.ModBiomeGeneration.Config
+@enduml

@@ -1,8 +1,8 @@
-package net.lemeow.iamod.entity;
+package net.lemeow.iamod.entityDEPRECATED;
 
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricEntityTypeBuilder;
 import net.lemeow.iamod.IAMod;
-import net.lemeow.iamod.entity.custom.CapybaraEntity;
+import net.lemeow.iamod.entityDEPRECATED.custom.CapybaraEntity;
 import net.minecraft.entity.EntityDimensions;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.SpawnGroup;

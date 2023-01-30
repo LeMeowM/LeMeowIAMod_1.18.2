@@ -2,7 +2,6 @@ package net.lemeow.iamod.item;
 
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.ArmorMaterial;
-import net.minecraft.item.ItemConvertible;
 import net.minecraft.item.Items;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.sound.SoundEvent;
@@ -15,10 +14,10 @@ public enum ModArmorMaterials implements ArmorMaterial {
 
     COPPER("copper", 15, new int[]{2, 4, 4, 1}, 25,
             SoundEvents.ITEM_ARMOR_EQUIP_IRON, 0.0F, 0.0F,
-            () -> Ingredient.ofItems(new ItemConvertible[]{Items.COPPER_INGOT})),
+            () -> Ingredient.ofItems(Items.COPPER_INGOT)),
     VOID_QUARTZ("void_quartz", 46, new int[]{3, 6, 8, 3}, 20,
             SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 4.0F, 0.3F,
-            () -> Ingredient.ofItems(new ItemConvertible[]{ModItems.VOID_QUARTZ_INGOT}));
+            () -> Ingredient.ofItems(ModItems.VOID_QUARTZ_INGOT));
 
 
     private static final int[] BASE_DURABILITY = new int[]{13, 15, 16, 11};
@@ -44,6 +43,7 @@ public enum ModArmorMaterials implements ArmorMaterial {
         this.repairIngredientSupplier = new Lazy(repairIngredientSupplier);
     }
 
+    // The rest are all getters
     public int getDurability(EquipmentSlot slot) {
         return BASE_DURABILITY[slot.getEntitySlotId()] * this.durabilityMultiplier;
     }

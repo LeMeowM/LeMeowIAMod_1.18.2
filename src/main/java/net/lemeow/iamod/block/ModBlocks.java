@@ -17,6 +17,9 @@ import net.minecraft.util.Rarity;
 import net.minecraft.util.math.intprovider.UniformIntProvider;
 import net.minecraft.util.registry.Registry;
 
+/**
+ * Registers all blocks, this is called by {@link IAMod} to be running at compile time.
+ */
 public class ModBlocks {
 
     // Void Quartz Blocks Inputs

@@ -25,6 +25,7 @@ import net.minecraft.world.event.GameEvent;
 import java.util.Map;
 import java.util.function.Predicate;
 
+// todo: fix this
 @FunctionalInterface
 public interface CheeseMoldBehavior {
     Map<Item, CheeseMoldBehavior> EMPTY_CHEESE_MOLD = createMap();

@@ -1,6 +1,6 @@
-package net.lemeow.iamod.entity.custom;
+package net.lemeow.iamod.entityDEPRECATED.custom;
 
-import net.lemeow.iamod.entity.ai.WaterChillGoal;
+import net.lemeow.iamod.entityDEPRECATED.ai.WaterChillGoal;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.EntityType;

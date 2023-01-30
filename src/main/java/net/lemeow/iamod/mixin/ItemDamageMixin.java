@@ -22,7 +22,9 @@ public class ItemDamageMixin {
             cancellable = true
     )
     public void damageMixin(DamageSource source, float amount, CallbackInfoReturnable<Boolean> cir){
-        if(!((ItemEntity)(Object)this).getStack().isEmpty() && Objects.equals(Objects.requireNonNull(((ItemEntity) (Object) this).getStack().getItem().getGroup()).getName(), "VOID_QUARTZ") && source.isExplosive()){
+        if(!((ItemEntity)(Object)this).getStack().isEmpty() &&
+                Objects.equals(Objects.requireNonNull(((ItemEntity) (Object) this).getStack().getItem().getGroup()).getName(), "VOID_QUARTZ")
+                && source.isExplosive()){
             cir.setReturnValue(false);
         }
     }

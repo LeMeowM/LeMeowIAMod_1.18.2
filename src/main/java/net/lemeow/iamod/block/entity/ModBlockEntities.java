@@ -7,6 +7,9 @@ import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
+/**
+ * Registers all BlockEntities which I have made: currently it is only the Infusion Table but there will be more.
+ */
 public class ModBlockEntities {
     public static BlockEntityType<InfusionTableBlockEntity> INFUSION_TABLE;
 

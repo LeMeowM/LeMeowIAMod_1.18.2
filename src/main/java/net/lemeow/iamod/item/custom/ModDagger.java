@@ -8,8 +8,14 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.SwordItem;
 import net.minecraft.item.ToolMaterial;
 // todo: change it so its not kill and just do more damage
-public class ModKnife extends SwordItem {
-    public ModKnife(ToolMaterial toolMaterial, int attackDamage, float attackSpeed, Settings settings) {
+
+/**
+ * The template of the dagger items, basically the same thing as a sword, except it does extra things AFTER the hit.
+ * Specifically extends {@link SwordItem} AND NOT my {@link ModSword} due to the two needing to be different and daggers
+ * not supposed to take whatever the sword has.
+ */
+public class ModDagger extends SwordItem {
+    public ModDagger(ToolMaterial toolMaterial, int attackDamage, float attackSpeed, Settings settings) {
         super(toolMaterial, attackDamage, attackSpeed, settings);
     }
 
@@ -32,7 +38,7 @@ public class ModKnife extends SwordItem {
 
         if (dYaw < 90 || dYaw > 270) {
             target.damage(DamageSource.mob(attacker),
-                    super.getAttackDamage());
+                    super.getAttackDamage()*super.getMaterial().getAttackDamage());
             return true;
         }
         else if(dYaw > 90 && dYaw < 270){

@@ -26,8 +26,10 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.Optional;
 
-// it seems that only read NBT doesnt work
-// THIS NOW WORKS :D
+/**
+ * Is created for every {@link net.lemeow.iamod.block.custom.InfusionTableBlock}
+ * Contains the inventory of the block which needs to be queried for the screen to be made.
+ */
 public class InfusionTableBlockEntity extends BlockEntity implements NamedScreenHandlerFactory, ImplementedInventory {
 
 
@@ -203,7 +205,6 @@ public class InfusionTableBlockEntity extends BlockEntity implements NamedScreen
 
 
 
-
     public static void craftItem(InfusionTableBlockEntity entity){
         // idk why this is necessary but without it the world sometimes crashes
         World world = entity.world;
@@ -232,6 +233,7 @@ public class InfusionTableBlockEntity extends BlockEntity implements NamedScreen
 
         // resetting the infusion progress
         entity.resetProgress();
+        entity.markDirty();
     }
 
     private void resetProgress() {

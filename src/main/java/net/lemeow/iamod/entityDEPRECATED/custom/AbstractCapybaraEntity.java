@@ -1,4 +1,4 @@
-package net.lemeow.iamod.entity.custom;
+package net.lemeow.iamod.entityDEPRECATED.custom;
 
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.EntityType;

@@ -1,4 +1,4 @@
-package net.lemeow.iamod.entity.ai;
+package net.lemeow.iamod.entityDEPRECATED.ai;
 
 import net.minecraft.block.LeveledCauldronBlock;
 import net.minecraft.entity.ai.goal.Goal;

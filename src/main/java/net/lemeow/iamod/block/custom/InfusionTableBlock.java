@@ -26,7 +26,10 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.stream.Stream;
 
-
+/**
+ * This class describes how the physical block behaves and is composed of a BlockEntity in {@link InfusionTableBlockEntity}.
+ * Opens a {@link net.lemeow.iamod.screen.infusiontable.InfusionTableScreen} when right-clicked.
+ */
 public class InfusionTableBlock extends BlockWithEntity implements BlockEntityProvider {
 
     /**
