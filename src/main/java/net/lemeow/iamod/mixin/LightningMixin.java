@@ -12,6 +12,13 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(LightningEntity.class)
 public abstract class LightningMixin {
+	/**
+	 * The injection part of the Mixin, specifically, this will be called right after the LightningEntity starts spawning
+	 * fire in its tick() method. All this method does is call the makeSand() method as well as a logging method for
+	 * easier stack-tracking of the errors that come from Mixins.
+	 * @param info This is taking the information that the spawnFire() method outputs and storing it; any change to it will change what spawnFire() outputs.
+	 *                Although I am not currently using it the @At annotation requires its use.
+	 */
 	@Inject(
 			at = @At(value = "INVOKE",
 					target = "Lnet/minecraft/entity/LightningEntity;spawnFire(I)V",
@@ -24,8 +31,14 @@ public abstract class LightningMixin {
 	}
 
 
-
-
+	/**
+	 * As we are Mixing into the LightningEntity class, this is technically a child of that class. However, the compiler
+	 * doesn't actually know that, and so you have to do the casting voodoo magic as seen in the first line, used to get
+	 * the position of the entity. Then, this function replaces all sand it finds on "walks" going downward with glass,
+	 * thereby making a "so hot it made glass in the sand" feeling.
+	 * If I had more time, I would have made an in-between block which would have been minable and collectable but so far
+	 * this is cool.
+	 */
 	private void makeSand(){
 		BlockPos positionLightning = ((LightningEntity)(Object)this).getBlockPos();
 		BlockState glass = Blocks.GLASS.getDefaultState();
