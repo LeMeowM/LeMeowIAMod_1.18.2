@@ -12,9 +12,12 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.JsonHelper;
 import net.minecraft.world.World;
 
-
+/**
+ * All behaviours of the recipes are stored here. On compile time {@link ModRecipes} will Register Type and Serializer
+ * for both client side and serverside.
+ */
 public class InfusionTableRecipe implements Recipe<SimpleInventory> {
-
+    // The important information we want to match to with recipes
     private final Identifier id;
     private final Ingredient input;
     private final Ingredient fuel;
@@ -42,7 +45,7 @@ public class InfusionTableRecipe implements Recipe<SimpleInventory> {
     }
 
 
-    // write the matches thing based on the simpleinventory system
+    // this is mostly based on the SimpleInventory one, but it has some changes.
     @Override
     public boolean matches(SimpleInventory inventory, World world) {
         if(isFueledByItem(inventory, fuel)){
@@ -81,56 +84,70 @@ public class InfusionTableRecipe implements Recipe<SimpleInventory> {
         return Type.INSTANCE;
     }
 
+    /**
+     * A way to recognise which Serializer to use, if Minecraft finds this Type.ID, the Serializer for this class will
+     * be called.
+     * This is a class because sometimes multiple Types can call the same Serializer.
+     */
     public static class Type implements RecipeType<InfusionTableRecipe> {
         private Type() {}
         public static final Type INSTANCE = new Type();
         public static final String ID = "infusion_table";
     }
 
-
+    /**
+     *The Serializer called for all SerDes calls for recipes of this Type.ID.
+     */
     public static class Serializer implements  RecipeSerializer<InfusionTableRecipe> {
         public static final Serializer INSTANCE = new Serializer();
 
         // this is the name used in the json file: i.e. "aimod:infusion_table"
-        public static final String ID = "infusion_table";
+        public static final String ID = Type.ID;
 
-
-        // for in person, only one necessary apparently but I want server possibility
+        /**
+         * Read calls for reading off of JSON, done by both the server and the client in singleplayer so that they have
+         * a correct RecipeRegistry.
+         * @param id Will always be Type.ID: "infusion_table", this is only so that if something goes catastrophically
+         *           wrong, we will have a decent stacktrace.
+         * @param json The text version of the JSON file with a lot of methods to help out with the querying of all the
+         *             instance variables.
+         * @return A InfusionTableRecipe for the registry.
+         */
         @Override
         public InfusionTableRecipe read(Identifier id, JsonObject json) {
-            // using sharedrecipe's outputFromJson method bc I don't want to write my own
-            // nevemind wrote my own
             ItemStack output = ShapedRecipe.outputFromJson(JsonHelper.getObject(json, "output"));
-
             Ingredient ingredients = Ingredient.fromJson(JsonHelper.getObject(json, "input"));
-
             Ingredient fuel = Ingredient.fromJson(JsonHelper.getObject(json, "fuel"));
 
             return new InfusionTableRecipe(id, ingredients, fuel, output);
         }
 
-        // FIGURED IT OUT, THESE 2 HAVE TO MATCH UP
+        /**
+         * Executed exclusively by the client who is joining the server.
+         * @param id Will always be Type.ID: "infusion_table", this is only so that if something goes catastrophically
+         *           wrong, we will have a decent stacktrace.
+         * @param buf The buffer of information that has been relayed from the server to the client.
+         * @return A InfusionTableRecipe for the registry.
+         */
         @Override
         public InfusionTableRecipe read(Identifier id, PacketByteBuf buf) {
-
-            //reading input
             Ingredient input = Ingredient.fromPacket(buf);
-
-            // reading fuel
-
             Ingredient fuel = Ingredient.fromPacket(buf);
-
-            // reading the output
             ItemStack output = buf.readItemStack();
 
-            // returing the recipe we use
             return new InfusionTableRecipe(id, input, fuel, output);
-
 
         }
 
-
-
+        /**
+         * This is actually usually not necessary due to the fact that this mod is REQUIRED clientside for textures and
+         * some client side behaviours (GUIS), however, the client complains if it doesn't receive this to confirm that
+         * it has the right recipes.
+         * @param buf This is called before the server can send the information, so the buffer is so that whenever the
+         *            client joins, this entire buffer will be to them. This buffer is FINAL, hence it can only be edited
+         *            using inbuilt methods such as .write().
+         * @param recipe A recipe to write down, will go through all recipes found in {@link net.minecraft.util.registry.Registry}
+         */
         @Override
         public void write(PacketByteBuf buf, InfusionTableRecipe recipe) {
             recipe.input.write(buf);

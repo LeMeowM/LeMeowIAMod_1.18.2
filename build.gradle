@@ -32,7 +32,7 @@ dependencies {
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 	// Adding Geckolib dependency to this mod
 	modImplementation 'software.bernie.geckolib:geckolib-fabric-1.18:3.0.54'
-
+	// BCLib also necessary
 	modImplementation "com.github.quiqueck:BCLib:${project.bclib_version}"
 
 }
